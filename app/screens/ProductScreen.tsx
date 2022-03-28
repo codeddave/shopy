@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import data from "../../assets/data/products.json";
+import ProductList from "../components/products/ProductList";
 
 const ProductScreen = () => {
   const [products, setProducts] = useState<{}[]>([]);
@@ -15,7 +16,9 @@ const ProductScreen = () => {
       <Text>ProductScreen</Text>
       <FlatList
         data={products}
-        renderItem={({ item }: any) => <Text> {item.brand}</Text>}
+        renderItem={({ item }: any) => (
+          <ProductList key={item.id} item={item} />
+        )}
         keyExtractor={(item: any) => item.name}
       />
     </View>
