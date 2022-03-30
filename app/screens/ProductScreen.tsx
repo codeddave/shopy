@@ -19,7 +19,6 @@ const ProductScreen = () => {
         paddingBottom: 30,
       }}
     >
-      <Text>ProductScreen</Text>
       <FlatList
         scrollEnabled
         numColumns={2}

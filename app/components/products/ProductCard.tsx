@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     elevation: 8,
+    borderColor: "grey",
+    borderWidth: 0.2,
   },
   image: {
     width: width / 2 - 20 - 10,
