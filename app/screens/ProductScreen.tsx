@@ -12,9 +12,17 @@ const ProductScreen = () => {
     };
   }, []);
   return (
-    <View>
+    <View
+      style={{
+        marginTop: 100,
+        backgroundColor: "gainsboro",
+        paddingBottom: 30,
+      }}
+    >
       <Text>ProductScreen</Text>
       <FlatList
+        scrollEnabled
+        numColumns={2}
         data={products}
         renderItem={({ item }: any) => (
           <ProductList key={item.id} item={item} />
