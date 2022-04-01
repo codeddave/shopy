@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     color: "orange",
+    marginTop: 10,
   },
 });
 
