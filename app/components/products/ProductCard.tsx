@@ -20,6 +20,12 @@ const ProductCard = ({ item }: Props) => {
         {item.name.length > 15 ? item.name.slice(0, 12) + "..." : item.name}
       </Text>
       <Text style={styles.price}>{item.price}</Text>
+
+      {item.counter > 0 ? (
+        <Button title="Add to Cart" onPress={() => console.log("hello")} />
+      ) : (
+        <Text> Out of Stock</Text>
+      )}
     </View>
   );
 };
