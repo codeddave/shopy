@@ -15,13 +15,21 @@ type Props = {
 const ProductCard = ({ item }: Props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.card} />
+      <Image
+        resizeMode="contain"
+        style={styles.image}
+        source={{
+          uri: item.image
+            ? item.image
+            : `https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png`,
+        }}
+      />
       <Text style={styles.title}>
         {item.name.length > 15 ? item.name.slice(0, 12) + "..." : item.name}
       </Text>
       <Text style={styles.price}>{item.price}</Text>
 
-      {item.counter > 0 ? (
+      {item.countInStock > 0 ? (
         <Button title="Add to Cart" onPress={() => console.log("hello")} />
       ) : (
         <Text> Out of Stock</Text>
@@ -46,12 +54,12 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width / 2 - 20 - 10,
-    height: width / 2 - 20 - 30,
+    height: width / 2 - 20 - 70,
     backgroundColor: "transparent",
-    top: -45,
+    top: -35,
   },
   card: {
-    marginTop: 10,
+    marginBottom: 10,
     height: width / 2 - 20 - 90,
     backgroundColor: "transparent",
     width: width / 2 - 20 - 10,
