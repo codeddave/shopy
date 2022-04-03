@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Image, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Image, Text } from "react-native";
 
 const Header = () => {
   return (
@@ -9,22 +9,22 @@ const Header = () => {
         style={styles.logo}
         source={require("../../../assets/cart.png")}
       />
+      <Text style={{ textAlign: "center", fontStyle: "italic" }}>Shopy</Text>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
     alignContent: "center",
     justifyContent: "center",
-    flexDirection: "row",
-    marginTop: 85,
-    marginBottom: 30,
-    height: 80,
+
+    marginTop: 110,
+    marginBottom: 10,
+    height: 120,
   },
   logo: {
-    width: 50,
+    width: 45,
     height: 60,
   },
 });
