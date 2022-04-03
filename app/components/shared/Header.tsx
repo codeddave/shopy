@@ -1,10 +1,14 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Image, Text, View } from "react-native";
 
 const Header = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text> Hello there</Text>
+      <Image
+        resizeMode="contain"
+        style={styles.logo}
+        source={require("../../../assets/cart.png")}
+      />
     </SafeAreaView>
   );
 };
@@ -15,9 +19,12 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     flexDirection: "row",
-    marginTop: 80,
-    marginBottom: 10,
-
+    marginTop: 85,
+    marginBottom: 30,
+    height: 80,
+  },
+  logo: {
+    width: 50,
     height: 60,
   },
 });
