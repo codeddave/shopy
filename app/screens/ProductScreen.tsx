@@ -14,7 +14,6 @@ const ProductScreen = () => {
   return (
     <View
       style={{
-        marginTop: 100,
         backgroundColor: "gainsboro",
         paddingBottom: 30,
       }}
