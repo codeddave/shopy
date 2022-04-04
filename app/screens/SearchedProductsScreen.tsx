@@ -10,16 +10,19 @@ import {
 import React from "react";
 //import { StyleSheet, View } from "react-native";
 
-const SearchedProductsScreen = ({ filteredProducts }: any) => {
+type Props = {
+  filteredProducts: any[];
+};
+const SearchedProductsScreen = ({ filteredProducts }: Props) => {
   return (
-    <Box>
+    <Box width="90%" height="100%">
       <Heading>Results</Heading>
       <FlatList
         data={filteredProducts}
         renderItem={({ item }: any) => (
           <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
-            <HStack space={3} justifyContent="space-between">
-              <Avatar size="48px" rounded="full" source={{ uri: item.url }} />
+            <HStack space={3}>
+              <Avatar size="48px" rounded="full" source={{ uri: item.image }} />
               <VStack>
                 <Text color="coolGray.800" bold>
                   {item.name}
