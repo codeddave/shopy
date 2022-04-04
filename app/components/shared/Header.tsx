@@ -9,7 +9,7 @@ const Header = () => {
         style={styles.logo}
         source={require("../../../assets/cart.png")}
       />
-      <Text style={{ textAlign: "center", fontStyle: "italic" }}>Shopy</Text>
+      {/*   <Text style={{ textAlign: "center", fontStyle: "italic" }}>Shopy</Text> */}
     </SafeAreaView>
   );
 };
@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
 
-    marginTop: 110,
-    marginBottom: 10,
+    marginTop: 125,
     height: 120,
   },
   logo: {
