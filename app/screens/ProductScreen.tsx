@@ -53,6 +53,16 @@ const ProductScreen = () => {
             as={<MaterialIcons name="search" />}
           />
         }
+        InputRightElement={
+          focus ? (
+            <Icon
+              mr="2"
+              size="3"
+              color="gray.600"
+              as={<MaterialIcons name="close" onPress={closeList} />}
+            />
+          ) : null
+        }
       />
       {focus ? (
         <SearchedProductsScreen filteredProducts={filteredProducts} />
