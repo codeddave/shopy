@@ -19,17 +19,22 @@ const SearchedProductsScreen = ({ filteredProducts }: Props) => {
       <Heading>Results</Heading>
       <FlatList
         data={filteredProducts}
-        renderItem={({ item }: any) => (
-          <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
-            <HStack space={3}>
-              <Avatar size="48px" rounded="full" source={{ uri: item.image }} />
-              <VStack>
-                <Text color="coolGray.800" bold>
-                  {item.name}
-                </Text>
-                <Text color="coolGray.600">{item.price}</Text>
-              </VStack>
-              {/*  <Spacer />
+        renderItem={({ item }: any) => {
+          return filteredProducts.length ? (
+            <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
+              <HStack space={3}>
+                <Avatar
+                  size="48px"
+                  rounded="full"
+                  source={{ uri: item.image }}
+                />
+                <VStack>
+                  <Text color="coolGray.800" bold>
+                    {item.name}
+                  </Text>
+                  <Text color="coolGray.600">{item.price}</Text>
+                </VStack>
+                {/*  <Spacer />
               <Text
                 fontSize="xs"
                
@@ -37,9 +42,12 @@ const SearchedProductsScreen = ({ filteredProducts }: Props) => {
                 alignSelf="flex-start">
                 {item.timeStamp}
               </Text> */}
-            </HStack>
-          </Box>
-        )}
+              </HStack>
+            </Box>
+          ) : (
+            <Text color="black"> No results found</Text>
+          );
+        }}
         keyExtractor={(item: any) => item.name}
       />
     </Box>
