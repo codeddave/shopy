@@ -1,5 +1,6 @@
+import { ScrollView, View } from "native-base";
 import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, Image, StyleSheet } from "react-native";
 import Swiper from "react-native-swiper";
 
 const { width } = Dimensions.get("window");
@@ -17,7 +18,45 @@ const Banner = () => {
       setBannerData([]);
     };
   }, []);
-  return <div>Banner</div>;
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.swiper}>
+          <Swiper
+            showsButtons={false}
+            autoplay
+            autoplayTimeout={2}
+            style={{ height: width / 2 }}
+          >
+            {bannerData.map((item) => (
+              <Image
+                style={styles.imageBanner}
+                key={item}
+                resizeMode="contain"
+                source={{ uri: item }}
+              />
+            ))}
+          </Swiper>
+          <View style={{ height: 20 }}></View>
+        </View>
+      </View>
+    </ScrollView>
+  );
 };
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "gainsboro",
+  },
+  swiper: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  imageBanner: {
+    height: width / 2,
+    width: width - 40,
+    marginHorizontal: 12,
+  },
+});
 export default Banner;
