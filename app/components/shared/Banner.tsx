@@ -20,25 +20,23 @@ const Banner = () => {
   }, []);
   return (
     <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.swiper}>
-          <Swiper
-            showsButtons={false}
-            autoplay
-            autoplayTimeout={2}
-            style={{ height: width / 2 }}
-          >
-            {bannerData.map((item) => (
-              <Image
-                style={styles.imageBanner}
-                key={item}
-                resizeMode="contain"
-                source={{ uri: item }}
-              />
-            ))}
-          </Swiper>
-          <View style={{ height: 20 }}></View>
-        </View>
+      <View style={styles.swiper}>
+        <Swiper
+          showsButtons={false}
+          autoplay
+          autoplayTimeout={2}
+          style={{ height: width / 2 }}
+        >
+          {bannerData.map((item) => (
+            <Image
+              style={styles.imageBanner}
+              key={item}
+              resizeMode="contain"
+              source={{ uri: item }}
+            />
+          ))}
+        </Swiper>
+        <View style={{ height: 20 }}></View>
       </View>
     </ScrollView>
   );
