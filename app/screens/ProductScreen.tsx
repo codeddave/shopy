@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, View } from "react-native";
+import { Alert, FlatList, View } from "react-native";
 import data from "../../assets/data/products.json";
+import categoriesData from "../../assets/data/categories.json";
+
 import ProductList from "../components/products/ProductList";
 import { Input, Icon } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
+import Banner from "../components/shared/Banner";
 const ProductScreen = () => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
   const [products, setProducts] = useState<{}[]>([]);
+  const [categories, setCategories] = useState<{}[]>([]);
+
+  const [isActive, setIsActive] = useState();
+  const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);
   useEffect(() => {
@@ -27,10 +34,14 @@ const ProductScreen = () => {
   };
   const openList = () => {
     setFocus(true);
+    Alert.alert("List");
   };
   const closeList = () => {
     setFocus(false);
   };
+  /*   const closeListAndClearnbkjb = () => {
+    setFocus(false);
+  }; */
   return (
     <>
       <Input
@@ -74,6 +85,7 @@ const ProductScreen = () => {
             marginTop: 4,
           }}
         >
+          <Banner />
           <FlatList
             scrollEnabled
             numColumns={2}
