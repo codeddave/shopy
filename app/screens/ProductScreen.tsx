@@ -20,8 +20,11 @@ const ProductScreen = () => {
   useEffect(() => {
     setProducts(data);
     setFilteredProducts(data);
+    setInitialState(data);
+
     return () => {
       setProducts([]);
+      setFilteredProducts([]);
     };
   }, []);
   const searchProducts = (text: string) => {
