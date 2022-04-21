@@ -25,18 +25,17 @@ const Banner = () => {
           showsButtons={false}
           autoplay
           autoplayTimeout={2}
-          style={{ height: width / 2 }}
+          style={{ height: width / 3 }}
         >
           {bannerData.map((item) => (
             <Image
               style={styles.imageBanner}
               key={item}
-              resizeMode="contain"
+              resizeMode="cover"
               source={{ uri: item }}
             />
           ))}
         </Swiper>
-        <View style={{ height: 20 }}></View>
       </View>
     </ScrollView>
   );
@@ -52,9 +51,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   imageBanner: {
-    height: width / 2,
-    width: width - 40,
-    marginHorizontal: 12,
+    height: width / 3,
+    width: width,
   },
 });
 export default Banner;
