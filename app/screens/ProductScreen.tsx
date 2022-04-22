@@ -16,7 +16,7 @@ const ProductScreen = () => {
   const [categories, setCategories] = useState<{}[]>([]);
   const [productCategories, setProductCategories] = useState<{}[]>([]);
 
-  const [isActive, setIsActive] = useState<any>();
+  const [isActive, setIsActive] = useState<number>();
   const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);

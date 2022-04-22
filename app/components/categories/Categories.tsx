@@ -1,4 +1,4 @@
-import { Badge, Box, Text } from "native-base";
+import { Badge, Box, HStack, Text } from "native-base";
 import React from "react";
 import { TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
@@ -26,7 +26,7 @@ const Categories = ({
       bounces
       style={{ backgroundColor: "#f2f2f2", marginTop: 10 }}
     >
-      <Box>
+      <HStack>
         <TouchableOpacity
           onPress={() => {
             categoryFilter("all");
@@ -37,7 +37,7 @@ const Categories = ({
             style={[
               styles.center,
               { margin: 5 },
-              active ? styles.active : styles.inactive,
+              active == -1 ? styles.active : styles.inactive,
             ]}
           >
             <Text paddingBottom="4" color="white">
@@ -51,13 +51,13 @@ const Categories = ({
               categoryFilter(category._id);
               setActive(categories.indexOf(category));
             }}
-            key={category._id}
+            key={category._id.$oid}
           >
             <Badge
               style={[
                 styles.center,
                 { margin: 5 },
-                active === categories.indexOf(category)
+                active == categories.indexOf(category)
                   ? styles.active
                   : styles.inactive,
               ]}
@@ -68,7 +68,7 @@ const Categories = ({
             </Badge>
           </TouchableOpacity>
         ))}
-      </Box>
+      </HStack>
     </ScrollView>
   );
 };
