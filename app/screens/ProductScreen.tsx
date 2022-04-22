@@ -8,12 +8,15 @@ import { Input, Icon } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
+import Categories from "../components/categories/Categories";
+
 const ProductScreen = () => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
   const [products, setProducts] = useState<{}[]>([]);
   const [categories, setCategories] = useState<{}[]>([]);
+  const [productCategories, setProductCategories] = useState<{}[]>([]);
 
-  const [isActive, setIsActive] = useState();
+  const [isActive, setIsActive] = useState(false);
   const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);
@@ -21,10 +24,12 @@ const ProductScreen = () => {
     setProducts(data);
     setFilteredProducts(data);
     setInitialState(data);
+    setCategories(categoriesData);
 
     return () => {
       setProducts([]);
       setFilteredProducts([]);
+      setCategories([]);
     };
   }, []);
   const searchProducts = (text: string) => {
@@ -45,6 +50,25 @@ const ProductScreen = () => {
   /*   const closeListAndClearnbkjb = () => {
     setFocus(false);
   }; */
+  const changeCategory = (category: string) => {
+    {
+      category === "all"
+        ? [setProductCategories(initialState), setIsActive(true)]
+        : [
+            setProductCategories(
+              products.filter(
+                (filter: any) => category === filter.category.$oid
+              )
+            ),
+          ];
+    }
+  };
+  /*  const j =()=> {
+    {
+        [setProducts([])]
+    }
+  
+  } */
   return (
     <>
       <Input
@@ -89,6 +113,13 @@ const ProductScreen = () => {
           }}
         >
           <Banner />
+          <Categories
+            categories={categories}
+            categoryFilter={changeCategory}
+            productCategories={productCategories}
+            active={isActive}
+            setActive={setIsActive}
+          />
           <FlatList
             scrollEnabled
             numColumns={2}
