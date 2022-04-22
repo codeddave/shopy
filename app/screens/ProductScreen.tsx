@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, FlatList, View } from "react-native";
+import { Alert, Dimensions, FlatList, View } from "react-native";
 import data from "../../assets/data/products.json";
 import categoriesData from "../../assets/data/categories.json";
 
@@ -9,6 +9,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import Categories from "../components/categories/Categories";
+const { height } = Dimensions.get("window");
 
 const ProductScreen = () => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
@@ -120,10 +121,12 @@ const ProductScreen = () => {
             active={isActive}
             setActive={setIsActive}
           />
+          {/*  {productCategories} */}
           <FlatList
+            style={{ height: "100%" }}
             scrollEnabled
             numColumns={2}
-            data={products}
+            data={productCategories}
             renderItem={({ item }: any) => (
               <ProductList key={item.id} item={item} />
             )}
