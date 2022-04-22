@@ -4,12 +4,17 @@ import { TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
 type Props = {
   categories: any[];
-  categoryFilter: any;
-  productCategories: any;
-  active: boolean;
+  categoryFilter: (filter: string) => void;
+  productCategories: any[];
+  active: number | undefined;
   setActive: any;
 };
-const Categories = ({ setActive, categoryFilter, active }: Props) => {
+const Categories = ({
+  setActive,
+  categoryFilter,
+  active,
+  categories,
+}: Props) => {
   const handleBadgeClick = (filter: string) => {
     categoryFilter(filter);
 
@@ -24,7 +29,7 @@ const Categories = ({ setActive, categoryFilter, active }: Props) => {
       <Box>
         <TouchableOpacity
           onPress={() => {
-            handleBadgeClick("all");
+            categoryFilter("all");
           }}
           key={1}
         >
@@ -40,6 +45,29 @@ const Categories = ({ setActive, categoryFilter, active }: Props) => {
             </Text>
           </Badge>
         </TouchableOpacity>
+        {categories.map((category) => (
+          <TouchableOpacity
+            onPress={() => {
+              categoryFilter(category._id);
+              setActive(categories.indexOf(category));
+            }}
+            key={category._id}
+          >
+            <Badge
+              style={[
+                styles.center,
+                { margin: 5 },
+                active === categories.indexOf(category)
+                  ? styles.active
+                  : styles.inactive,
+              ]}
+            >
+              <Text paddingBottom="4" color="white">
+                {category.name}
+              </Text>
+            </Badge>
+          </TouchableOpacity>
+        ))}
       </Box>
     </ScrollView>
   );
