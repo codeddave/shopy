@@ -16,7 +16,7 @@ const ProductScreen = () => {
   const [categories, setCategories] = useState<{}[]>([]);
   const [productCategories, setProductCategories] = useState<{}[]>([]);
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState<any>();
   const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);
@@ -53,7 +53,7 @@ const ProductScreen = () => {
   const changeCategory = (category: string) => {
     {
       category === "all"
-        ? [setProductCategories(initialState), setIsActive(true)]
+        ? [setProductCategories(initialState), setIsActive(-1)]
         : [
             setProductCategories(
               products.filter(
