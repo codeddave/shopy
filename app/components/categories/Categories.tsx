@@ -34,6 +34,7 @@ const Categories = ({
           key={1}
         >
           <Badge
+            rounded="lg"
             style={[
               styles.center,
               { margin: 5 },
@@ -48,12 +49,13 @@ const Categories = ({
         {categories.map((category) => (
           <TouchableOpacity
             onPress={() => {
-              categoryFilter(category._id);
+              categoryFilter(category._id.$oid);
               setActive(categories.indexOf(category));
             }}
             key={category._id.$oid}
           >
             <Badge
+              rounded="lg"
               style={[
                 styles.center,
                 { margin: 5 },
