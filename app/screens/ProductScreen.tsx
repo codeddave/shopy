@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Dimensions, FlatList, View } from "react-native";
+import { Alert, Text, View, StyleSheet } from "react-native";
 import data from "../../assets/data/products.json";
 import categoriesData from "../../assets/data/categories.json";
 
 import ProductList from "../components/products/ProductList";
-import { Input, Icon } from "native-base";
+import { Input, Icon, ScrollView } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import Categories from "../components/categories/Categories";
-const { height } = Dimensions.get("window");
 
 const ProductScreen = () => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
@@ -64,12 +63,7 @@ const ProductScreen = () => {
           ];
     }
   };
-  /*  const j =()=> {
-    {
-        [setProducts([])]
-    }
-  
-  } */
+
   return (
     <>
       <Input
@@ -106,14 +100,18 @@ const ProductScreen = () => {
       {focus ? (
         <SearchedProductsScreen filteredProducts={filteredProducts} />
       ) : (
-        <View
-          style={{
-            backgroundColor: "gainsboro",
-            paddingBottom: 30,
-            marginTop: 4,
-          }}
+        <ScrollView
+          style={[
+            {
+              backgroundColor: "gainsboro",
+              paddingBottom: 30,
+              marginTop: 4,
+            },
+          ]}
         >
-          <Banner />
+          <View>
+            <Banner />
+          </View>
           <Categories
             categories={categories}
             categoryFilter={changeCategory}
@@ -122,20 +120,28 @@ const ProductScreen = () => {
             setActive={setIsActive}
           />
           {/*  {productCategories} */}
-          <FlatList
-            style={{ height: "100%" }}
-            scrollEnabled
-            numColumns={2}
-            data={productCategories}
-            renderItem={({ item }: any) => (
-              <ProductList key={item.id} item={item} />
-            )}
-            keyExtractor={(item: any) => item.name}
-          />
-        </View>
+
+          {productCategories.length > 0 ? (
+            <View style={styles.container}>
+              {productCategories.map((item: any) => (
+                <ProductList key={item.id} item={item} />
+              ))}
+            </View>
+          ) : (
+            <Text>Product Not Found</Text>
+          )}
+        </ScrollView>
       )}
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+});
 
 export default ProductScreen;
