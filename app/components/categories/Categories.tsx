@@ -26,7 +26,7 @@ const Categories = ({
       bounces
       style={{ backgroundColor: "#f2f2f2", marginTop: 10 }}
     >
-      <HStack>
+      <HStack paddingY="2">
         <TouchableOpacity
           onPress={() => {
             categoryFilter("all");
@@ -41,9 +41,7 @@ const Categories = ({
               active == -1 ? styles.active : styles.inactive,
             ]}
           >
-            <Text paddingBottom="4" color="white">
-              All
-            </Text>
+            <Text color="white">All</Text>
           </Badge>
         </TouchableOpacity>
         {categories.map((category) => (
@@ -64,9 +62,7 @@ const Categories = ({
                   : styles.inactive,
               ]}
             >
-              <Text paddingBottom="4" color="white">
-                {category.name}
-              </Text>
+              <Text color="white">{category.name}</Text>
             </Badge>
           </TouchableOpacity>
         ))}
