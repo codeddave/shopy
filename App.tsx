@@ -1,15 +1,18 @@
 //import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from "react-native";
 import Header from "./app/components/shared/Header";
-import ProductScreen from "./app/screens/ProductScreen";
 import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppNavigator } from "./app/navigation";
 export default function App() {
   return (
     <NativeBaseProvider>
-      <View style={styles.container}>
-        <Header />
-        <ProductScreen />
-      </View>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <Header />
+          <AppNavigator />
+        </View>
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }
