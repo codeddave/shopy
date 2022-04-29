@@ -1,5 +1,5 @@
 import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
@@ -28,6 +28,27 @@ const AppNavigator = () => {
               size={size}
               color={color}
             />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name=" Admin"
+        component={() => <div></div>}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialIcons name="verified-user" size={size} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="User"
+        component={() => <div></div>}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="account" size={size} color={color} />
           ),
         }}
       />
