@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Alert, Text, View, StyleSheet } from "react-native";
+import { Alert, View, StyleSheet } from "react-native";
 import data from "../../assets/data/products.json";
 import categoriesData from "../../assets/data/categories.json";
 
 import ProductList from "../components/products/ProductList";
-import { Input, Icon, ScrollView } from "native-base";
+import { Input, Icon, ScrollView, Text } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
@@ -128,7 +128,9 @@ const ProductScreen = () => {
               ))}
             </View>
           ) : (
-            <Text>Product Not Found</Text>
+            <Text textAlign="center" paddingTop={4} fontSize="lg">
+              Product Not Found
+            </Text>
           )}
         </ScrollView>
       )}
