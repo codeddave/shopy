@@ -5,11 +5,10 @@ import ProductCard from "./ProductCard";
 type Props = {
   item: any;
 };
-const { width } = Dimensions.get("window");
 const ProductList = ({ item }: Props) => {
   return (
     <TouchableOpacity style={styles.container}>
-      <View style={{ width: width / 2, backgroundColor: "gainsboro" }}>
+      <View style={{ backgroundColor: "gainsboro" }}>
         <ProductCard item={item} />
       </View>
     </TouchableOpacity>
