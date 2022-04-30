@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Alert, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import data from "../../assets/data/products.json";
 import categoriesData from "../../assets/data/categories.json";
 
@@ -10,13 +10,16 @@ import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import Categories from "../components/categories/Categories";
 
-const ProductScreen = () => {
+type Props = {
+  navigation: any;
+};
+const ProductScreen = ({ navigation }: Props) => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
   const [products, setProducts] = useState<{}[]>([]);
   const [categories, setCategories] = useState<{}[]>([]);
   const [productCategories, setProductCategories] = useState<{}[]>([]);
 
-  const [isActive, setIsActive] = useState<number>();
+  const [isActive, setIsActive] = useState<number>(-1);
   const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);
@@ -25,6 +28,7 @@ const ProductScreen = () => {
     setFilteredProducts(data);
     setInitialState(data);
     setCategories(categoriesData);
+    setProductCategories(data);
 
     return () => {
       setProducts([]);
@@ -42,7 +46,6 @@ const ProductScreen = () => {
   };
   const openList = () => {
     setFocus(true);
-    Alert.alert("List");
   };
   const closeList = () => {
     setFocus(false);
@@ -72,7 +75,6 @@ const ProductScreen = () => {
         variant="filled"
         backgroundColor="whitesmoke"
         borderRadius="10"
-        onBlur={closeList}
         onFocus={openList}
         onChangeText={(text) => searchProducts(text)}
         py="1"
@@ -98,7 +100,10 @@ const ProductScreen = () => {
         }
       />
       {focus ? (
-        <SearchedProductsScreen filteredProducts={filteredProducts} />
+        <SearchedProductsScreen
+          navigation={navigation}
+          filteredProducts={filteredProducts}
+        />
       ) : (
         <ScrollView
           style={[
@@ -124,7 +129,11 @@ const ProductScreen = () => {
           {productCategories.length > 0 ? (
             <View style={styles.container}>
               {productCategories.map((item: any) => (
-                <ProductList key={item.id} item={item} />
+                <ProductList
+                  key={item.id}
+                  item={item}
+                  navigation={navigation}
+                />
               ))}
             </View>
           ) : (
