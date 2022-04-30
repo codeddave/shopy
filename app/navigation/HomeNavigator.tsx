@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { ProductScreen } from "../screens";
+import { ProductDetailScreen, ProductScreen } from "../screens";
 
 const Stack = createStackNavigator();
 
@@ -10,6 +10,13 @@ const HomeNavigator = () => {
       <Stack.Screen
         name="Home"
         component={ProductScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Product Detail"
+        component={ProductDetailScreen}
         options={{
           headerShown: false,
         }}
