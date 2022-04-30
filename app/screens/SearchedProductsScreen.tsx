@@ -8,12 +8,13 @@ import {
   VStack,
 } from "native-base";
 import React from "react";
-//import { StyleSheet, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 type Props = {
   filteredProducts: any[];
+  navigation: any;
 };
-const SearchedProductsScreen = ({ filteredProducts }: Props) => {
+const SearchedProductsScreen = ({ filteredProducts, navigation }: Props) => {
   return (
     <Box width="90%" height="100%">
       <Heading>Results</Heading>
@@ -21,20 +22,23 @@ const SearchedProductsScreen = ({ filteredProducts }: Props) => {
         data={filteredProducts}
         renderItem={({ item }: any) => {
           return filteredProducts.length ? (
-            <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
-              <HStack space={3}>
-                <Avatar
-                  size="48px"
-                  rounded="full"
-                  source={{ uri: item.image }}
-                />
-                <VStack>
-                  <Text color="coolGray.800" bold>
-                    {item.name}
-                  </Text>
-                  <Text color="coolGray.600">{item.price}</Text>
-                </VStack>
-                {/*  <Spacer />
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Product Detail", { item })}
+            >
+              <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
+                <HStack space={3}>
+                  <Avatar
+                    size="48px"
+                    rounded="full"
+                    source={{ uri: item.image }}
+                  />
+                  <VStack>
+                    <Text color="coolGray.800" bold>
+                      {item.name}
+                    </Text>
+                    <Text color="coolGray.600">{item.price}</Text>
+                  </VStack>
+                  {/*  <Spacer />
               <Text
                 fontSize="xs"
                
@@ -42,8 +46,9 @@ const SearchedProductsScreen = ({ filteredProducts }: Props) => {
                 alignSelf="flex-start">
                 {item.timeStamp}
               </Text> */}
-              </HStack>
-            </Box>
+                </HStack>
+              </Box>
+            </TouchableOpacity>
           ) : (
             <Text color="black"> No results found</Text>
           );
