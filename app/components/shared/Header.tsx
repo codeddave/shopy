@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   container: {
     alignContent: "center",
     justifyContent: "center",
-
-    marginTop: 125,
+    flexDirection: "row",
+    marginTop: 0,
     height: 120,
   },
   logo: {
