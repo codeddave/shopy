@@ -8,20 +8,9 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <View style={styles.container}>
-          <Header />
-          <AppNavigator />
-        </View>
+        <Header />
+        <AppNavigator />
       </NavigationContainer>
     </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
