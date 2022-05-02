@@ -5,7 +5,8 @@ const reducer = {};
 
 const store = configureStore({
   reducer,
-  middleware: [thunkMiddleware, logger],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(logger).concat(thunkMiddleware),
 });
 
 export default store;
