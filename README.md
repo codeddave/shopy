@@ -1,6 +1,5 @@
-# shopy
+# Shopy
 React Native E commerce store
-# Wanderlust
 
 Shopy is a React Native ecommerce application
 
