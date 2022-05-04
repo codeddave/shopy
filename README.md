@@ -1,5 +1,4 @@
 # Shopy
-React Native E commerce store
 
 Shopy is a React Native ecommerce application
 
