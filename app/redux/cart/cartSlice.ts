@@ -14,8 +14,14 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       state.cart.push(action.payload);
     },
+    removeFromCart: (state, action) => {
+      const updatedCart = state.cart.filter(
+        (cartItem) => cartItem !== action.payload
+      );
+      state.cart = [...updatedCart];
+    },
   },
   /*   extraReducers: (builder) => {    
-
+ 
   }, */
 });
