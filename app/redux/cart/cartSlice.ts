@@ -1,4 +1,4 @@
-import { createSlice, Action } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 type CartState = {
   cart: any[];

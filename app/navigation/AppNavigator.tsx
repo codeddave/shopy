@@ -3,6 +3,7 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeNavigator from "./HomeNavigator";
+import { CartScreen } from "../screens";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -20,7 +21,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="Cart"
-        component={HomeNavigator}
+        component={CartScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ size, color }) => (
