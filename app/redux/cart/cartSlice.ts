@@ -20,6 +20,9 @@ const cartSlice = createSlice({
       );
       state.cart = [...updatedCart];
     },
+    clearCart: (state) => {
+      state.cart = [];
+    },
   },
   /*   extraReducers: (builder) => {    
  
