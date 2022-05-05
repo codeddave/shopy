@@ -28,3 +28,6 @@ const cartSlice = createSlice({
  
   }, */
 });
+
+export const { reducer: cartReducer, name: cartReducerName } = cartSlice;
+export type CartStateType = ReturnType<typeof cartReducer>;
