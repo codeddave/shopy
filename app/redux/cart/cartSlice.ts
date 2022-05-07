@@ -30,4 +30,6 @@ const cartSlice = createSlice({
 });
 
 export const { reducer: cartReducer, name: cartReducerName } = cartSlice;
+export const { addToCart, clearCart } = cartSlice.actions;
+
 export type CartStateType = ReturnType<typeof cartReducer>;

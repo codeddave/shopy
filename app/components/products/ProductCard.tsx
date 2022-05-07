@@ -7,12 +7,15 @@ import {
   Image,
   Button,
 } from "react-native";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cart";
 
 const { width } = Dimensions.get("window");
 type Props = {
   item: any;
 };
 const ProductCard = ({ item }: Props) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <Image
@@ -30,7 +33,7 @@ const ProductCard = ({ item }: Props) => {
       <Text style={styles.price}>{item.price}</Text>
 
       {item.countInStock > 0 ? (
-        <Button title="Add to Cart" onPress={() => console.log("hello")} />
+        <Button title="Add to Cart" onPress={() => dispatch(addToCart(item))} />
       ) : (
         <Text> Out of Stock</Text>
       )}
