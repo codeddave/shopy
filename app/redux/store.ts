@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunkMiddleware from "redux-thunk";
 import logger from "redux-logger";
-const reducer = {};
+import rootReducer from "./rootReducer";
 
 const store = configureStore({
-  reducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(logger).concat(thunkMiddleware),
 });

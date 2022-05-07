@@ -1,8 +1,17 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../redux/cart";
 
 const CartScreen = () => {
-  return <Text>CartScreen</Text>;
+  const cartItems = useSelector(selectCartItems);
+  return (
+    <View>
+      {cartItems.map((cartItem) => (
+        <Text> {cartItem.name}</Text>
+      ))}
+    </View>
+  );
 };
 
 export default CartScreen;
