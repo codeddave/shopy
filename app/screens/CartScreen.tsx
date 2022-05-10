@@ -2,10 +2,12 @@ import { Box, VStack, Image, Text, Button } from "native-base";
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { useSelector } from "react-redux";
-import { selectCartItems } from "../redux/cart";
+import { selectCartItems, selectCartTotal } from "../redux/cart";
 
 const CartScreen = () => {
   const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+
   return (
     <Box bgColor="gray.200" height="full" paddingTop={1}>
       {cartItems.map((cartItem) => (
@@ -19,12 +21,9 @@ const CartScreen = () => {
           borderBottomWidth={0.17}
           borderBottomColor="gray.400"
         >
-          <Image
-            resizeMode="contain"
-            width={100}
-            height={100}
-            source={{ uri: cartItem.image }}
-          />
+          <Box width={100} height={100}>
+            <Image resizeMode="contain" source={{ uri: cartItem.image }} />
+          </Box>
 
           <VStack paddingLeft={7}>
             <Text>{cartItem.name}</Text>
@@ -32,6 +31,15 @@ const CartScreen = () => {
           </VStack>
         </Box>
       ))}
+      <Box
+        display="flex"
+        flexDirection="row"
+        justifyContent="flex-end"
+        marginTop={4}
+        paddingRight={2}
+      >
+        <Text> Total : ${cartTotal}</Text>
+      </Box>
       <Button colorScheme="green" marginX={2} marginTop={5}>
         Checkout
       </Button>
