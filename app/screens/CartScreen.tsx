@@ -1,4 +1,4 @@
-import { Box, VStack, Image, Text } from "native-base";
+import { Box, VStack, Image, Text, Button } from "native-base";
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import { useSelector } from "react-redux";
@@ -11,6 +11,8 @@ const CartScreen = () => {
       {cartItems.map((cartItem) => (
         <Box
           padding={3}
+          marginX={2}
+          marginY={0.5}
           bgColor="white"
           display="flex"
           flexDirection="row"
@@ -26,10 +28,13 @@ const CartScreen = () => {
 
           <VStack paddingLeft={7}>
             <Text>{cartItem.name}</Text>
-            <Text>{cartItem.price}</Text>
+            <Text paddingTop={2}>{cartItem.price}</Text>
           </VStack>
         </Box>
       ))}
+      <Button colorScheme="green" marginX={2} marginTop={5}>
+        Checkout
+      </Button>
     </Box>
   );
 };
