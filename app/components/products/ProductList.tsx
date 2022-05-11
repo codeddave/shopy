@@ -1,10 +1,11 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import ProductCard from "./ProductCard";
+import { NavigationScreenProp } from "react-navigation";
 
 type Props = {
   item: any;
-  navigation: any;
+  navigation: NavigationScreenProp<any, any>;
 };
 const ProductList = ({ item, navigation }: Props) => {
   return (
