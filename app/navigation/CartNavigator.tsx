@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { CartScreen, CheckoutScreen } from "../screens";
+import { CartScreen } from "../screens";
 import CheckoutNavigator from "./CheckoutNavigator";
 
 const Stack = createStackNavigator();
