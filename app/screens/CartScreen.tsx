@@ -1,20 +1,20 @@
 import { Box, VStack, Image, Text, Button } from "native-base";
 import React from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useSelector } from "react-redux";
-import { selectCartItems, selectCartTotal } from "../redux/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, selectCartItems, selectCartTotal } from "../redux/cart";
 
 const CartScreen = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  const dispatch = useDispatch();
 
   return (
     <Box bgColor="gray.200" height="full" paddingTop={1}>
       {cartItems.length ? (
         <>
           <Box display="flex" pr="3" py={1} alignItems="flex-end">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => dispatch(clearCart())}>
               <Text> CLEAR</Text>
             </TouchableOpacity>
           </Box>
