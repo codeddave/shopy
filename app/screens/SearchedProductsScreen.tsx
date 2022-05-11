@@ -9,10 +9,11 @@ import {
 } from "native-base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { NavigationScreenProp } from "react-navigation";
 
 type Props = {
   filteredProducts: any[];
-  navigation: any;
+  navigation: NavigationScreenProp<any, any>;
 };
 const SearchedProductsScreen = ({ filteredProducts, navigation }: Props) => {
   return (
