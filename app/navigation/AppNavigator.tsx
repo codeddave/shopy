@@ -4,6 +4,8 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeNavigator from "./HomeNavigator";
 import { CartScreen } from "../screens";
+import { View } from "react-native";
+import CartIcon from "../components/cart/CartIcon";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -25,11 +27,14 @@ const AppNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons
-              name="cart-outline"
-              size={size}
-              color={color}
-            />
+            <View>
+              <MaterialCommunityIcons
+                name="cart-outline"
+                size={size}
+                color={color}
+              />
+              <CartIcon />
+            </View>
           ),
         }}
       />
