@@ -1,6 +1,5 @@
 import { ScrollView, Box, Image } from "native-base";
 import React from "react";
-import { StyleSheet } from "react-native";
 
 type Props = {
   route: any;
@@ -25,10 +24,11 @@ const ProductDetailScreen = ({ route }: Props) => {
           resizeMode="contain"
           marginTop={10}
         />
+
+        <Box></Box>
       </Box>
     </ScrollView>
   );
 };
-const styles = StyleSheet.create({});
 
 export default ProductDetailScreen;

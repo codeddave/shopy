@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import data from "../../assets/data/products.json";
 import categoriesData from "../../assets/data/categories.json";
-
+import { NavigationScreenProp } from "react-navigation";
 import ProductList from "../components/products/ProductList";
 import { Input, Icon, ScrollView, Text } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -11,7 +11,7 @@ import Banner from "../components/shared/Banner";
 import Categories from "../components/categories/Categories";
 
 type Props = {
-  navigation: any;
+  navigation: NavigationScreenProp<any, any>;
 };
 const ProductScreen = ({ navigation }: Props) => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
