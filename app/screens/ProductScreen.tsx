@@ -9,6 +9,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import Categories from "../components/categories/Categories";
+//import { StackScreenProps} from "@react-navigation/stack";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
