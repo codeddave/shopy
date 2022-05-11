@@ -1,6 +1,7 @@
 import { Box, VStack, Image, Text, Button } from "native-base";
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { useSelector } from "react-redux";
 import { selectCartItems, selectCartTotal } from "../redux/cart";
 
@@ -12,10 +13,16 @@ const CartScreen = () => {
     <Box bgColor="gray.200" height="full" paddingTop={1}>
       {cartItems.length ? (
         <>
+          <Box display="flex" pr="3" py={1} alignItems="flex-end">
+            <TouchableOpacity>
+              <Text> CLEAR</Text>
+            </TouchableOpacity>
+          </Box>
+
           {cartItems.map((cartItem) => (
             <Box
               padding={3}
-              marginX={2}
+              marginX={3}
               marginY={0.5}
               bgColor="white"
               display="flex"
@@ -38,9 +45,9 @@ const CartScreen = () => {
             flexDirection="row"
             justifyContent="flex-end"
             marginTop={4}
-            paddingRight={2}
+            paddingRight={3}
           >
-            <Text> Total : ${cartTotal}</Text>
+            <Text fontWeight="bold"> Total : ${cartTotal}</Text>
           </Box>
           <Button colorScheme="green" marginX={2} marginTop={5}>
             Checkout
