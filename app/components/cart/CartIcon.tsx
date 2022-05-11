@@ -11,7 +11,7 @@ const CartIcon = () => {
         <Box
           position="absolute"
           top={-4}
-          right={-6}
+          right={-8}
           bgColor="red.500"
           rounded="full"
           w="5"
@@ -20,7 +20,7 @@ const CartIcon = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Text fontSize={12} color="white">
+          <Text fontSize={12} pl="0.5" color="white">
             {cartItems.length}{" "}
           </Text>
         </Box>
