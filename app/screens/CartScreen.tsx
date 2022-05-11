@@ -1,10 +1,14 @@
 import { Box, VStack, Image, Text, Button } from "native-base";
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { NavigationScreenProp } from "react-navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, selectCartItems, selectCartTotal } from "../redux/cart";
 
-const CartScreen = () => {
+type Props = {
+  navigation: NavigationScreenProp<any, any>;
+};
+const CartScreen = ({ navigation }: Props) => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const dispatch = useDispatch();
@@ -54,7 +58,12 @@ const CartScreen = () => {
           >
             <Text fontWeight="bold"> Total : ${cartTotal}</Text>
           </Box>
-          <Button colorScheme="green" marginX={2} marginTop={5}>
+          <Button
+            onPress={() => navigation.navigate("Checkout")}
+            colorScheme="green"
+            marginX={2}
+            marginTop={5}
+          >
             Checkout
           </Button>
         </>
