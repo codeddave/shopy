@@ -7,7 +7,7 @@ const CartNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Home"
+        name="CartScreen"
         component={CartScreen}
         options={{
           headerShown: false,
