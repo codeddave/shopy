@@ -31,7 +31,12 @@ const CartScreen = () => {
               borderBottomColor="gray.400"
             >
               <Box width={100} height={100}>
-                <Image resizeMode="contain" source={{ uri: cartItem.image }} />
+                <Image
+                  width={100}
+                  height={100}
+                  resizeMode="contain"
+                  source={{ uri: cartItem.image }}
+                />
               </Box>
 
               <VStack paddingLeft={7}>
