@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import React, { FC } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TextInput } from "react-native-gesture-handler";
 
 type Props = {
   icon?: string;
@@ -13,7 +15,21 @@ const CustomTextInput: FC<Props> = ({
 }) => {
   return (
     <SafeAreaView>
-      <View style={[styles.container, { width }]}></View>
+      <View style={[styles.container, { width }]}>
+        {icon ? (
+          <MaterialCommunityIcons
+            name={icon as any}
+            size={20}
+            // color={colors.mediumGrey}
+            style={styles.icon}
+          />
+        ) : null}
+        <TextInput
+          //  placeholderTextColor={colors.mediumGrey}
+          style={[styles.textInput]}
+          {...otherProps}
+        />
+      </View>
     </SafeAreaView>
   );
 };
