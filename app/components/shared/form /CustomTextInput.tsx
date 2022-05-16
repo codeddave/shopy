@@ -7,10 +7,16 @@ type Props = {
   icon?: string;
   width?: string;
   otherProps: any;
+  onBlur: () => void;
+  onChangeText: (text: string) => void;
+  value: any;
 };
 const CustomTextInput: FC<Props> = ({
   width = "100%",
   icon,
+  onBlur,
+  onChangeText,
+  value,
   ...otherProps
 }) => {
   return (
