@@ -1,10 +1,15 @@
 import { View, Text } from "react-native";
 import React from "react";
+import { CustomForm } from "../components";
 
 const CheckoutScreen = () => {
   return (
     <View>
-      <Text>CheckoutScreen</Text>
+      <CustomForm
+        onSubmit={() => console.log("hello")}
+        initialValues={{}}
+        validationSchema={{}}
+      />
     </View>
   );
 };
