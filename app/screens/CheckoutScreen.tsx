@@ -22,7 +22,11 @@ const CheckoutScreen = () => {
       >
         <FormField
           name="phone"
-          {...{ placeholder: "Phone" /* icon: "email" */ }}
+          {...{
+            placeholder: "Phone",
+            keyboardType: "numeric",
+            /* icon: "email" */
+          }}
         />
         <FormField
           name="shippingAddressOne"
@@ -38,7 +42,10 @@ const CheckoutScreen = () => {
         />
         <FormField
           name="zipCode"
-          {...{ placeholder: "Zip Code" /* icon: "email" */ }}
+          {...{
+            placeholder: "Zip Code",
+            keyboardType: "numeric" /* icon: "email" */,
+          }}
         />
       </CustomForm>
     </Box>
