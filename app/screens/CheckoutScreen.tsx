@@ -1,7 +1,7 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import { CustomForm, FormField } from "../components";
-import { Box } from "native-base";
+import { Box, Text } from "native-base";
 
 const CheckoutScreen = () => {
   return (
@@ -12,6 +12,9 @@ const CheckoutScreen = () => {
       display="flex"
       alignItems="center"
     >
+      <Text marginTop={4} fontSize="md">
+        Shipping Address{" "}
+      </Text>
       <CustomForm
       /*   onSubmit={() => console.log("hello")}saev
         initialValues={{}}
