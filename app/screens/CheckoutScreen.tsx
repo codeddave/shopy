@@ -12,7 +12,7 @@ const CheckoutScreen = () => {
       display="flex"
       alignItems="center"
     >
-      <Text marginTop={4} fontSize="md">
+      <Text marginTop={5} marginBottom={2} fontSize="md">
         Shipping Address{" "}
       </Text>
       <CustomForm
@@ -23,6 +23,22 @@ const CheckoutScreen = () => {
         <FormField
           name="phone"
           {...{ placeholder: "Phone" /* icon: "email" */ }}
+        />
+        <FormField
+          name="shippingAddressOne"
+          {...{ placeholder: "Shipping Address 1" /* icon: "email" */ }}
+        />
+        <FormField
+          name="shippingAddressTwo"
+          {...{ placeholder: "Shipping Address 2" /* icon: "email" */ }}
+        />
+        <FormField
+          name="city"
+          {...{ placeholder: "City" /* icon: "email" */ }}
+        />
+        <FormField
+          name="zipCode"
+          {...{ placeholder: "Zip Code" /* icon: "email" */ }}
         />
       </CustomForm>
     </Box>
