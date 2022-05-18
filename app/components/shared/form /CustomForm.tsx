@@ -1,22 +1,22 @@
 import React, { FC } from "react";
-import { Formik } from "formik";
+import { Formik, FormikValues } from "formik";
 
 type Props = {
-  initialValues: any;
-  validationSchema: any;
-  onSubmit: () => void;
+  initialValues?: any;
+  validationSchema?: any;
+  onSubmit: (values: FormikValues) => void;
 };
 const CustomForm: FC<Props> = ({
   initialValues,
-  validationSchema,
+  //validationSchema,
   onSubmit,
   children,
 }) => {
   return (
     <Formik
-      validationSchema={validationSchema}
+      //validationSchema={validationSchema}
       initialValues={initialValues}
-      onSubmit={onSubmit}
+      onSubmit={(values) => onSubmit(values)}
     >
       {() => <>{children}</>}
     </Formik>
