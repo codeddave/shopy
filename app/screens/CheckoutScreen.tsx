@@ -48,7 +48,15 @@ const CheckoutScreen = () => {
             keyboardType: "numeric" /* icon: "email" */,
           }}
         />
-        <Select placeholder="Select your country"></Select>
+        <Select placeholder="Select your country">
+          {countriesData.map((country) => (
+            <Select.Item
+              key={country.code}
+              label={country.name}
+              value={country.name}
+            />
+          ))}
+        </Select>
       </CustomForm>
     </Box>
   );
