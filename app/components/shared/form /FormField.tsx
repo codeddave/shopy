@@ -6,18 +6,16 @@ import CustomTextInput from "./CustomTextInput";
 
 type Props = {
   name: string;
-  width: string;
-  otherProps: any;
+  width?: string;
+  otherProps?: any;
 };
 const AppFormField: FC<Props> = ({ name, width, ...otherProps }) => {
-  const { setFieldTouched, setFieldValue, values, errors, touched } =
-    useFormikContext();
   return (
     <>
       <CustomTextInput
-        onBlur={() => setFieldTouched(name)}
-        onChangeText={(text: any) => setFieldValue(name, text)}
-        value={(values as any)[name]}
+        //onBlur={() => setFieldTouched(name)}
+        // onChangeText={(text: any) => setFieldValue(name, text)}
+        // value={(values as any)[name]}
         {...otherProps}
         width={width}
       />
