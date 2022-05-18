@@ -26,7 +26,7 @@ const CustomTextInput: FC<Props> = ({
           <MaterialCommunityIcons
             name={icon as any}
             size={20}
-            // color={colors.mediumGrey}
+            // color={colors.mediumGrey}d
             style={styles.icon}
           />
         ) : null}
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.02,
     shadowRadius: 3,
-    padding: 15,
+    padding: 13,
     marginVertical: 10,
   },
   icon: {
