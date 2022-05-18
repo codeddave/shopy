@@ -1,16 +1,28 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { CustomForm } from "../components";
+import { CustomForm, FormField } from "../components";
+import { Box } from "native-base";
 
 const CheckoutScreen = () => {
   return (
-    <View>
+    <Box
+      width="92%"
+      marginX="auto"
+      justifyContent="center"
+      display="flex"
+      alignItems="center"
+    >
       <CustomForm
-        onSubmit={() => console.log("hello")}
+      /*   onSubmit={() => console.log("hello")}saev
         initialValues={{}}
-        validationSchema={{}}
-      />
-    </View>
+        validationSchema={{}} */
+      >
+        <FormField
+          name="phone"
+          {...{ placeholder: "Phone" /* icon: "email" */ }}
+        />
+      </CustomForm>
+    </Box>
   );
 };
 
