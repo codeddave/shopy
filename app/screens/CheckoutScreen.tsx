@@ -4,6 +4,14 @@ import { CustomForm, FormField } from "../components";
 import { Box, Select, Text } from "native-base";
 import countriesData from "../../assets/data/countries.json";
 
+const initialValues = {
+  phone: "",
+  shippingAddressOne: "",
+  shippingAddressTwo: "",
+  city: "",
+  zipCode: "",
+  country: "",
+};
 const CheckoutScreen = () => {
   return (
     <Box
@@ -17,9 +25,9 @@ const CheckoutScreen = () => {
         Shipping Address{" "}
       </Text>
       <CustomForm
-      /*   onSubmit={() => console.log("hello")}saev
-        initialValues={{}}
-        validationSchema={{}} */
+        onSubmit={() => console.log("hello")}
+        initialValues={initialValues}
+        //validationSchema={{}}
       >
         <FormField
           name="phone"
@@ -55,6 +63,7 @@ const CheckoutScreen = () => {
           placeholderTextColor="#adadaf"
           height="10"
           fontSize="sm"
+          width="full"
           mt={1}
         >
           {countriesData.map((country) => (
