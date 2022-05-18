@@ -6,10 +6,10 @@ import { TextInput } from "react-native-gesture-handler";
 type Props = {
   icon?: string;
   width?: string;
-  otherProps: any;
-  onBlur: () => void;
-  onChangeText: (text: string) => void;
-  value: any;
+  otherProps?: any;
+  onBlur?: () => void;
+  onChangeText?: (text: string) => void;
+  value?: any;
 };
 const CustomTextInput: FC<Props> = ({
   width = "100%",
@@ -31,6 +31,7 @@ const CustomTextInput: FC<Props> = ({
           />
         ) : null}
         <TextInput
+          placeholderTextColor="#adadaf"
           //  placeholderTextColor={colors.mediumGrey}
           style={[styles.textInput]}
           {...otherProps}
@@ -44,10 +45,14 @@ export default CustomTextInput;
 
 const styles = StyleSheet.create({
   container: {
-    //  backgroundColor: colors.lightGrey,
+    backgroundColor: "#ffffff",
     borderRadius: 25,
     flexDirection: "row",
+    borderColor: "black",
     width: "100%",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.02,
+    shadowRadius: 3,
     padding: 15,
     marginVertical: 10,
   },
