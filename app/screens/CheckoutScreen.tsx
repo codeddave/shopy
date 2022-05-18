@@ -1,7 +1,8 @@
 import { View } from "react-native";
 import React from "react";
 import { CustomForm, FormField } from "../components";
-import { Box, Text } from "native-base";
+import { Box, Select, Text } from "native-base";
+import countriesData from "../../assets/data/countries.json";
 
 const CheckoutScreen = () => {
   return (
@@ -47,6 +48,7 @@ const CheckoutScreen = () => {
             keyboardType: "numeric" /* icon: "email" */,
           }}
         />
+        <Select placeholder="Select your country"></Select>
       </CustomForm>
     </Box>
   );
