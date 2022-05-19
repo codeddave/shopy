@@ -1,10 +1,9 @@
 import React from "react";
 import { CustomForm, FormField, SubmitButton } from "../components";
-import { Box, KeyboardAvoidingView, Select, Text } from "native-base";
+import { Box, Select, Text } from "native-base";
 import countriesData from "../../assets/data/countries.json";
 import { NavigationScreenProp } from "react-navigation";
 import { FormikValues } from "formik";
-import { Platform } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 type Props = {
