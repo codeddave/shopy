@@ -16,6 +16,7 @@ const SubmitButton = ({ title, otherProps }: Props) => {
       marginX={2}
       marginTop={5}
       {...otherProps}
+      w="full"
     >
       {title}
     </Button>
