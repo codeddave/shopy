@@ -8,6 +8,7 @@ type Props = {
   navigation: NavigationScreenProp<any, any>;
 };
 const CheckoutScreen = ({ navigation }: Props) => {
+  //set orderItems to cartItems from redux
   const initialValues = {
     phone: "",
     shippingAddressOne: "",
