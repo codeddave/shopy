@@ -3,6 +3,7 @@ import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Select, Text } from "native-base";
 import countriesData from "../../assets/data/countries.json";
 import { NavigationScreenProp } from "react-navigation";
+import { FormikValues } from "formik";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -17,8 +18,12 @@ const CheckoutScreen = ({ navigation }: Props) => {
     zipCode: "",
     country: "",
   };
-  const handleCheckout = () => {
-    navigation.navigate("Payment");
+  const handleCheckout = (values: FormikValues) => {
+    const order = {
+      ...values,
+      //add orderItems
+    };
+    navigation.navigate("Payment", { order });
   };
   return (
     <Box
@@ -32,7 +37,7 @@ const CheckoutScreen = ({ navigation }: Props) => {
         Shipping Address{" "}
       </Text>
       <CustomForm
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => handleCheckout(values)}
         initialValues={initialValues}
         //validationSchema={{}}
       >
