@@ -16,7 +16,7 @@ const CustomForm: FC<Props> = ({
     <Formik
       //validationSchema={validationSchema}
       initialValues={initialValues}
-      onSubmit={(values) => onSubmit(values)}
+      onSubmit={onSubmit}
     >
       {() => <>{children}</>}
     </Formik>

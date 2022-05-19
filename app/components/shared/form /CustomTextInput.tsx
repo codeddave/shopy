@@ -32,6 +32,9 @@ const CustomTextInput: FC<Props> = ({
         ) : null}
         <TextInput
           placeholderTextColor="#adadaf"
+          onBlur={onBlur}
+          value={value}
+          onChangeText={onChangeText}
           //  placeholderTextColor={colors.mediumGrey}
           style={[styles.textInput]}
           {...otherProps}
