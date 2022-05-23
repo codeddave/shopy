@@ -29,7 +29,7 @@ const paymentCardOptions: PaymentOptionsType[] = [
   { name: "Other", value: 4 },
 ];
 const Payment = ({ route }: ScreenProps) => {
-  const order = route.params.order;
+  const order = route.params?.order;
   const [selected, setSelected] = useState<number>();
   const [card, setCard] = useState();
 
@@ -42,10 +42,15 @@ const Payment = ({ route }: ScreenProps) => {
       {paymentMethods.map((paymentMethod) => (
         <TouchableOpacity onPress={() => setSelected(paymentMethod.value)}>
           <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
-            <HStack alignItems="center" /* space={3} */>
+            <HStack
+              justifyContent="space-between"
+              alignItems="center" /* space={3} */
+            >
               <Text> {paymentMethod.name}</Text>
               {selected === paymentMethod.value ? (
-                <MaterialCommunityIcons name="check" />
+                <Box pr="3">
+                  <MaterialCommunityIcons name="check" />
+                </Box>
               ) : null}
             </HStack>
           </Box>
