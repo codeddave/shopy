@@ -12,7 +12,7 @@ const AppNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Homeh"
+        name="Home"
         component={HomeNavigator}
         options={{
           headerShown: false,
@@ -40,7 +40,7 @@ const AppNavigator = () => {
       />
 
       <Tab.Screen
-        name=" Admin"
+        name="Admin"
         component={HomeNavigator}
         options={{
           tabBarIcon: ({ size, color }) => (
