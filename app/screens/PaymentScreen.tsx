@@ -1,7 +1,9 @@
 import { View } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { Box, HStack, Text } from "native-base";
+import { Box, HStack, Radio, Text } from "native-base";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 type RootStackParamList = {
   Shipping: undefined;
@@ -28,23 +30,28 @@ const paymentCardOptions: PaymentOptionsType[] = [
 ];
 const Payment = ({ route }: ScreenProps) => {
   const order = route.params.order;
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState<number>();
   const [card, setCard] = useState();
 
   return (
-    <View>
+    <Box width="98%" marginX="auto">
       <Text mt="5" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
         {" "}
         Choose your payment method
       </Text>
       {paymentMethods.map((paymentMethod) => (
-        <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
-          <HStack /* space={3} */>
-            <Text> {paymentMethod.name}</Text>
-          </HStack>
-        </Box>
+        <TouchableOpacity onPress={() => setSelected(paymentMethod.value)}>
+          <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
+            <HStack alignItems="center" /* space={3} */>
+              <Text> {paymentMethod.name}</Text>
+              {selected === paymentMethod.value ? (
+                <MaterialCommunityIcons name="check" />
+              ) : null}
+            </HStack>
+          </Box>
+        </TouchableOpacity>
       ))}
-    </View>
+    </Box>
   );
 };
 
