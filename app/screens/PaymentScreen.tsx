@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
+import { Box, HStack, Text } from "native-base";
 
 type RootStackParamList = {
   Shipping: undefined;
@@ -32,7 +33,17 @@ const Payment = ({ route }: ScreenProps) => {
 
   return (
     <View>
-      <Text>Payment</Text>
+      <Text mt="5" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
+        {" "}
+        Choose your payment method
+      </Text>
+      {paymentMethods.map((paymentMethod) => (
+        <Box borderBottomWidth={1} borderColor="coolGray.200" py={2}>
+          <HStack /* space={3} */>
+            <Text> {paymentMethod.name}</Text>
+          </HStack>
+        </Box>
+      ))}
     </View>
   );
 };
