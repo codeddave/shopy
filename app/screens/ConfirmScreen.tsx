@@ -15,10 +15,15 @@ const Confirm = ({ route }: ScreenProps) => {
   const order = route.params?.order;
   return (
     <View>
-      <Text mt="5" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
+      <Text mt="6" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
         Confirm Order
       </Text>
-      <Box textAlign="center" display="flex" alignItems="center">
+      <Box
+        textAlign="center"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Text>Address: {order?.shippingAddressOne}</Text>
       </Box>
     </View>
