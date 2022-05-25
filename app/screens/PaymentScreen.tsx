@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { Box, HStack, Radio, Select, Text } from "native-base";
+import { Box, Button, HStack, Radio, Select, Text } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -36,7 +36,7 @@ const Payment = ({ route }: ScreenProps) => {
 
   return (
     <Box width="98%" marginX="auto">
-      <Text mt="5" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
+      <Text mt="6" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
         Choose your payment method
       </Text>
       {paymentMethods.map((paymentMethod) => (
@@ -79,6 +79,17 @@ const Payment = ({ route }: ScreenProps) => {
           ))}
         </Select>
       ) : null}
+      <Box mx="2">
+        <Button
+          //onPress={handleSubmit}
+          colorScheme="green"
+          marginTop={20}
+          /* {...otherProps} */
+          w="full"
+        >
+          Confirm
+        </Button>
+      </Box>
     </Box>
   );
 };
