@@ -39,7 +39,7 @@ const CheckoutScreen = ({ navigation }: Props) => {
         display="flex"
         alignItems="center"
       >
-        <Text marginTop={5} marginBottom={2} fontSize="md">
+        <Text marginTop={6} marginBottom={2} fontSize="md">
           Shipping Address{" "}
         </Text>
         <CustomForm
