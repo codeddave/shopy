@@ -3,6 +3,7 @@ import React from "react";
 import { Avatar, Box, Button, HStack, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useCart } from "../components";
+import { SCREENS } from "../constants/routes/AppScreens";
 /* 
 Create component for Text Heading, Custom button
 useCartItems hook that return items in cart and other details about cart
@@ -12,13 +13,18 @@ type RootStackParamList = {
   Shipping: undefined;
   Payment: { order: any };
   Confirm: { order: any };
+  Cart: undefined;
 };
 
 type ScreenProps = StackScreenProps<RootStackParamList, "Confirm">;
 
-const Confirm = ({ route }: ScreenProps) => {
+const Confirm = ({ route, navigation }: ScreenProps) => {
   const { cartItems, clearCart } = useCart();
   const order = route.params?.order;
+  const confirmOrder = () => {
+    clearCart();
+    navigation.navigate(SCREENS.CART_SCREEN as any);
+  };
   return (
     <View>
       <Text mt="6" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
@@ -55,7 +61,12 @@ const Confirm = ({ route }: ScreenProps) => {
         ))}
       </Box>
       <Box mx="2">
-        <Button onPress={clearCart} colorScheme="green" marginTop={20} w="full">
+        <Button
+          onPress={confirmOrder}
+          colorScheme="green"
+          marginTop={20}
+          w="full"
+        >
           Place Order
         </Button>
       </Box>
