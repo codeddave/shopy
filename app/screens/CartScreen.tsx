@@ -45,7 +45,7 @@ const CartScreen = ({ navigation }: Props) => {
 
               <VStack paddingLeft={7}>
                 <Text>{cartItem.name}</Text>
-                <Text paddingTop={2}>{cartItem.price}</Text>
+                <Text paddingTop={2}>${cartItem.price}</Text>
               </VStack>
             </Box>
           ))}
