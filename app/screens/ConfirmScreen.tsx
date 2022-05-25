@@ -2,8 +2,7 @@ import { View } from "react-native";
 import React from "react";
 import { Avatar, Box, Button, HStack, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
-import { useSelector } from "react-redux";
-import { selectCartItems } from "../redux/cart";
+import { useCart } from "../components";
 /* 
 Create component for Text Heading, Custom button
 useCartItems hook that return items in cart and other details about cart
@@ -18,7 +17,7 @@ type RootStackParamList = {
 type ScreenProps = StackScreenProps<RootStackParamList, "Confirm">;
 
 const Confirm = ({ route }: ScreenProps) => {
-  const cartItems = useSelector(selectCartItems);
+  const { cartItems, clearCart } = useCart();
   const order = route.params?.order;
   return (
     <View>
@@ -56,14 +55,7 @@ const Confirm = ({ route }: ScreenProps) => {
         ))}
       </Box>
       <Box mx="2">
-        <Button
-          //onPress={() => navigation.navigate("Confirm", { order })}
-          //onPress={handleSubmit}
-          colorScheme="green"
-          marginTop={20}
-          /* {...otherProps} */
-          w="full"
-        >
+        <Button onPress={clearCart} colorScheme="green" marginTop={20} w="full">
           Place Order
         </Button>
       </Box>
