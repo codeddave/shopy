@@ -1,7 +1,6 @@
-import { View } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { Box, Button, HStack, Radio, Select, Text } from "native-base";
+import { Box, Button, HStack, Select, Text } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -29,7 +28,7 @@ const paymentCardOptions: PaymentOptionsType[] = [
   { name: "Other", value: 4 },
 ];
 //const Test = () => <Text pr="6">f</Text>;
-const Payment = ({ route }: ScreenProps) => {
+const Payment = ({ route, navigation }: ScreenProps) => {
   const order = route.params?.order;
   const [selected, setSelected] = useState<number>();
   const [card, setCard] = useState();
@@ -81,6 +80,7 @@ const Payment = ({ route }: ScreenProps) => {
       ) : null}
       <Box mx="2">
         <Button
+          onPress={() => navigation.navigate("Confirm", { order })}
           //onPress={handleSubmit}
           colorScheme="green"
           marginTop={20}
