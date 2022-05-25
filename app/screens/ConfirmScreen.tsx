@@ -1,6 +1,6 @@
 import { View } from "react-native";
 import React from "react";
-import { Avatar, Box, HStack, Text } from "native-base";
+import { Avatar, Box, Button, HStack, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../redux/cart";
@@ -54,6 +54,18 @@ const Confirm = ({ route }: ScreenProps) => {
             </Box>
           </HStack>
         ))}
+      </Box>
+      <Box mx="2">
+        <Button
+          //onPress={() => navigation.navigate("Confirm", { order })}
+          //onPress={handleSubmit}
+          colorScheme="green"
+          marginTop={20}
+          /* {...otherProps} */
+          w="full"
+        >
+          Place Order
+        </Button>
       </Box>
     </View>
   );
