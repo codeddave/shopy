@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, selectCartItems, selectCartTotal } from "../../redux/cart";
 
-const useCart = (): {
-  cartItems: {
-    [key: string]: any;
-  };
+export const useCart = (): {
+  cartItems: any[];
   cartTotal: number;
   clearCart: () => void;
 } => {
@@ -18,5 +16,3 @@ const useCart = (): {
     clearCart: () => dispatch(clearCart()),
   };
 };
-
-export default useCart;
