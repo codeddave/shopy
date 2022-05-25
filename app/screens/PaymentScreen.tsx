@@ -1,14 +1,14 @@
 import { View } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { Box, HStack, Radio, Text } from "native-base";
+import { Box, HStack, Radio, Select, Text } from "native-base";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 type RootStackParamList = {
   Shipping: undefined;
   Payment: { order: any };
-  Confirm: any /* { sort: 'latest' | 'top' } | undefined; */;
+  Confirm: { order: any };
 };
 
 type ScreenProps = StackScreenProps<RootStackParamList, "Payment">;
@@ -28,6 +28,7 @@ const paymentCardOptions: PaymentOptionsType[] = [
   { name: "MasterCard", value: 3 },
   { name: "Other", value: 4 },
 ];
+//const Test = () => <Text pr="6">f</Text>;
 const Payment = ({ route }: ScreenProps) => {
   const order = route.params?.order;
   const [selected, setSelected] = useState<number>();
@@ -36,7 +37,6 @@ const Payment = ({ route }: ScreenProps) => {
   return (
     <Box width="98%" marginX="auto">
       <Text mt="5" mb="2" textAlign="center" fontSize="md" fontWeight="bold">
-        {" "}
         Choose your payment method
       </Text>
       {paymentMethods.map((paymentMethod) => (
@@ -56,6 +56,29 @@ const Payment = ({ route }: ScreenProps) => {
           </Box>
         </TouchableOpacity>
       ))}
+      {selected === 3 ? (
+        <Select
+          bgColor="white"
+          borderRadius={30}
+          placeholder="Select card type"
+          placeholderTextColor="#adadaf"
+          height="10"
+          fontSize="sm"
+          width="96%"
+          pl="3"
+          //dropdownIcon={<Test />}
+          alignItems="center"
+          mt={3}
+        >
+          {paymentCardOptions.map((paymentCardOption) => (
+            <Select.Item
+              key={paymentCardOption.value}
+              label={paymentCardOption.name}
+              value={String(paymentCardOption.value)}
+            />
+          ))}
+        </Select>
+      ) : null}
     </Box>
   );
 };
