@@ -25,6 +25,9 @@ const Confirm = ({ route }: ScreenProps) => {
         alignItems="center"
       >
         <Text>Address: {order?.shippingAddressOne}</Text>
+        <Text mt="2">Address2: {order?.shippingAddressTwo}</Text>
+        <Text mt="2">City: {order?.city}</Text>
+        <Text mt="2">Zip Code: {order?.zipCode}</Text>
       </Box>
     </View>
   );
