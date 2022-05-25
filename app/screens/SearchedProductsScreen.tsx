@@ -17,7 +17,7 @@ type Props = {
 };
 const SearchedProductsScreen = ({ filteredProducts, navigation }: Props) => {
   return (
-    <Box width="90%" height="100%">
+    <Box width="96%" height="100%" mx="auto">
       <Heading>Results</Heading>
       <FlatList
         data={filteredProducts}
@@ -37,7 +37,7 @@ const SearchedProductsScreen = ({ filteredProducts, navigation }: Props) => {
                     <Text color="coolGray.800" bold>
                       {item.name}
                     </Text>
-                    <Text color="coolGray.600">{item.price}</Text>
+                    <Text color="coolGray.600">${item.price}</Text>
                   </VStack>
                   {/*  <Spacer />
               <Text
