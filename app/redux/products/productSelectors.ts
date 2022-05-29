@@ -7,3 +7,7 @@ export const selectProducts = createSelector(
   getProduct,
   (product) => product.products
 );
+export const selectProductsLoading = createSelector(
+  getProduct,
+  (product) => product.isLoading
+);

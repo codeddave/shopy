@@ -3,11 +3,12 @@ import { productApi } from "../../api";
 
 import { SliceStatus } from "../../interfaces";
 
-export const getProducts = createAsyncThunk<any>(
+export const getProducts = createAsyncThunk(
   "products/getProducts",
-  async () => {
+  async (setAllData: any) => {
     const response = await productApi.getProducts();
-    return response;
+    setAllData(response.data);
+    return response.data;
   }
 );
 type ProductState = {
@@ -36,7 +37,7 @@ const productSlice = createSlice({
       })
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = SliceStatus.resolved;
-        state.products = action.payload;
+        state.products = action.payload as any[];
       })
       .addCase(getProducts.rejected, (state, action) => {
         state.isLoading = SliceStatus.rejected;
