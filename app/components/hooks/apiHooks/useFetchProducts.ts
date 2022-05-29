@@ -36,10 +36,7 @@ export const useFetchProducts = (): {
   useFocusEffect(
     useCallback(() => {
       dispatch(getProducts(setAllData));
-      console.log(
-        categories.length,
-        "djblajdvjlavjlsdvjlvjlConverting circular structure to JSON\n    --> starting at object with constructor 'Topology'\n"
-      );
+
       return () => {
         setFilteredProducts([]);
         setInitialState([]);
