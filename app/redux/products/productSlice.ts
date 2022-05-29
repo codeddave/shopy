@@ -3,10 +3,13 @@ import { productApi } from "../../api";
 
 import { SliceStatus } from "../../interfaces";
 
-const getProducts = createAsyncThunk<any>("products/getProducts", async () => {
-  const response = await productApi.getProducts();
-  return response;
-});
+export const getProducts = createAsyncThunk<any>(
+  "products/getProducts",
+  async () => {
+    const response = await productApi.getProducts();
+    return response;
+  }
+);
 type ProductState = {
   products: any[];
   isLoading: SliceStatus;
