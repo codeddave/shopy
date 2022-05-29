@@ -4,9 +4,8 @@ import { SliceStatus } from "../../interfaces";
 
 export const getCategories = createAsyncThunk(
   "categories/getCategories",
-  async (setAllData: any) => {
+  async () => {
     const response = await categoryApi.getCategories();
-    setAllData(response.data);
     return response.data;
   }
 );
