@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, ActivityIndicator } from "react-native";
-import data from "../../assets/data/products.json";
-import categoriesData from "../../assets/data/categories.json";
+
 import { NavigationScreenProp } from "react-navigation";
 import ProductList from "../components/products/ProductList";
-import { Input, Icon, ScrollView, Text, Box, VStack } from "native-base";
+import { Input, Icon, ScrollView, Text, VStack } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import { Categories } from "../components";
-import { useFetchProducts } from "../components/hooks/apiHooks/useFetchProducts";
+//import { useFetchProducts } from "../components/hooks/apiHooks/useFetchProducts";
 import { SliceStatus } from "../interfaces";
+import {
+  useFetchCategories,
+  useFetchProducts,
+} from "../components/hooks/apiHooks";
 
 //import { StackScreenProps} from "@react-navigation/stack";
 
@@ -19,29 +22,15 @@ type Props = {
 };
 const ProductScreen = ({ navigation }: Props) => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
-  //const [products, setProducts] = useState<{}[]>([]);
 
   const [isActive, setIsActive] = useState<number>(-1);
   const [initialState, setInitialState] = useState<{}[]>([]);
 
   const [focus, setFocus] = useState(false);
 
-  const { products, productCategories, categories, isProductsLoading } =
-    useFetchProducts();
-  //console.log(products);
-  /*   useEffect(() => {
-    setProducts(data);
-    setFilteredProducts(data);
-    setInitialState(data);
-    setCategories(categoriesData);
-    setProductCategories(data);
+  const { products, productCategories, isProductsLoading } = useFetchProducts();
+  const { categories, isCategoriesLoading } = useFetchCategories();
 
-    return () => {
-      setProducts([]);
-      setFilteredProducts([]);
-      setCategories([]);
-    };
-  }, []); */
   const searchProducts = (text: string) => {
     text === "" ? setFocus(false) : setFocus(true);
     setFilteredProducts(
@@ -75,7 +64,8 @@ const ProductScreen = ({ navigation }: Props) => {
 
   return (
     <>
-      {isProductsLoading === SliceStatus.pending ? (
+      {isProductsLoading === SliceStatus.pending ||
+      isCategoriesLoading === SliceStatus.pending ? (
         <VStack alignItems="center" justifyContent="center" height="100%">
           <ActivityIndicator />
         </VStack>

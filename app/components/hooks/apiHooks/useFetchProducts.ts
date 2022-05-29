@@ -12,12 +12,10 @@ import { SliceStatus } from "../../../interfaces";
 
 export const useFetchProducts = (): {
   products: any;
-  categories: any;
   productCategories: any;
   isProductsLoading: SliceStatus;
 } => {
   const [filteredProducts, setFilteredProducts] = useState<{}[]>([]);
-  const [categories, setCategories] = useState<{}[]>([]);
   const [productCategories, setProductCategories] = useState<{}[]>([]);
 
   const [isActive, setIsActive] = useState<number>(-1);
@@ -36,11 +34,9 @@ export const useFetchProducts = (): {
   useFocusEffect(
     useCallback(() => {
       dispatch(getProducts(setAllData));
-
       return () => {
         setFilteredProducts([]);
         setInitialState([]);
-        setCategories([]);
         setProductCategories([]);
       };
     }, [])
@@ -48,7 +44,6 @@ export const useFetchProducts = (): {
 
   return {
     products,
-    categories,
     productCategories,
     isProductsLoading,
   };
