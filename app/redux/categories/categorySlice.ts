@@ -27,8 +27,23 @@ const categorySlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(getCategories.pending, (state) => {
-      state.isLoading = SliceStatus.pending;
-    });
+    builder
+      .addCase(getCategories.pending, (state) => {
+        state.isLoading = SliceStatus.pending;
+      })
+      .addCase(getCategories.fulfilled, (state, action) => {
+        state.isLoading = SliceStatus.resolved;
+        state.categories = action.payload as [];
+      })
+      .addCase(getCategories.rejected, (state, action) => {
+        state.isLoading = SliceStatus.rejected;
+        state.error = action.error.message;
+      });
   },
 });
+
+export const { reducer: categoryReducer, name: categoryReducerName } =
+  categorySlice;
+export const {} = categorySlice.actions;
+
+export type CategoryStateType = ReturnType<typeof categoryReducer>;
