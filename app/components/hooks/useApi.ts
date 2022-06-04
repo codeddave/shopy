@@ -20,7 +20,6 @@ function useApi(apiFn: (...args: any) => Promise<ApiResponse<any, any>>): {
       setError(true);
       return;
     }
-
     setError(false);
     setData(response.data);
   };
