@@ -1,11 +1,25 @@
 import React from "react";
 import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Text } from "native-base";
+import { StackScreenProps } from "@react-navigation/stack";
 
-const LoginScreen = () => {
+type RootStackParamList = {
+  Login: undefined;
+  Register: undefined;
+};
+
+type ScreenProps = StackScreenProps<RootStackParamList, "Login">;
+
+const LoginScreen = ({ navigation }: ScreenProps) => {
   return (
     <Box pt="20" width="95%" marginX="auto">
-      <CustomForm initialValues={{}} onSubmit={() => console.log("hello")}>
+      <CustomForm
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={() => console.log("hello")}
+      >
         <Text textAlign="center" marginBottom={2} fontSize="3xl">
           Log In
         </Text>
@@ -31,8 +45,12 @@ const LoginScreen = () => {
             textContentType: "password",
           }}
         />
-        <Text pt="2">Forgot Password?</Text>
-
+        <Text onPress={() => navigation.navigate("Register")} pt="2">
+          Already have an account?
+        </Text>
+        {/*   <Text onPress={() => navigation.navigate("Register")} pt="2">
+          Forgot Password?
+        </Text> */}
         <SubmitButton title="Log In" />
       </CustomForm>
     </Box>
