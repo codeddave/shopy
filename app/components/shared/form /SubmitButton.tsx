@@ -13,7 +13,6 @@ const SubmitButton = ({ title, otherProps }: Props) => {
     <Button
       onPress={handleSubmit}
       colorScheme="green"
-      marginX={2}
       marginTop={5}
       {...otherProps}
       w="full"
