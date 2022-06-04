@@ -2,6 +2,7 @@ import React from "react";
 import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
+import { SCREENS } from "../constants/routes/AppScreens";
 
 type RootStackParamList = {
   Login: undefined;
@@ -45,7 +46,10 @@ const LoginScreen = ({ navigation }: ScreenProps) => {
             textContentType: "password",
           }}
         />
-        <Text onPress={() => navigation.navigate("Register")} pt="2">
+        <Text
+          onPress={() => navigation.navigate(SCREENS.REGISTER as any)}
+          pt="2"
+        >
           Don't have an account?
         </Text>
         {/*   <Text onPress={() => navigation.navigate("Register")} pt="2">

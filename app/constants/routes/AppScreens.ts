@@ -9,4 +9,6 @@ export const SCREENS = {
   SHIPPING: "Shipping",
   CONFIRM: "Confirm",
   PAYMENT: "Payment",
+  LOGIN: "Login",
+  REGISTER: "Register",
 };

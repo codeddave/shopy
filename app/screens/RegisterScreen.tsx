@@ -1,8 +1,17 @@
 import React from "react";
 import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Text } from "native-base";
+import { StackScreenProps } from "@react-navigation/stack";
+import { SCREENS } from "../constants/routes/AppScreens";
 
-const RegisterScreen = () => {
+type RootStackParamList = {
+  Login: undefined;
+  Register: undefined;
+};
+
+type ScreenProps = StackScreenProps<RootStackParamList, "Register">;
+
+const RegisterScreen = ({ navigation }: ScreenProps) => {
   return (
     <Box pt="24" width="94%" marginX="auto">
       <CustomForm
@@ -46,7 +55,9 @@ const RegisterScreen = () => {
             textContentType: "password",
           }}
         />
-        <Text pt="2">Already have an account?</Text>
+        <Text onPress={() => navigation.navigate(SCREENS.LOGIN as any)} pt="2">
+          Already have an account?
+        </Text>
 
         <SubmitButton title="Register" />
       </CustomForm>
