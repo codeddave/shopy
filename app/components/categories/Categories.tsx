@@ -44,7 +44,7 @@ const Categories = ({
             <Text color="white">All</Text>
           </Badge>
         </TouchableOpacity>
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <TouchableOpacity
             onPress={() => {
               categoryFilter(category._id.$oid);

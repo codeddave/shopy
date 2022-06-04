@@ -4,7 +4,7 @@ import { Box, Text } from "native-base";
 
 const RegisterScreen = () => {
   return (
-    <Box pt="20" width="95%" marginX="auto">
+    <Box pt="24" width="95%" marginX="auto">
       <CustomForm
         initialValues={{
           email: "",

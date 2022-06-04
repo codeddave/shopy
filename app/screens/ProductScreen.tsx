@@ -128,9 +128,9 @@ const ProductScreen = ({ navigation }: Props) => {
               />
               {/*  {productCategories} */}
 
-              {productCategories.length > 0 ? (
+              {productCategories?.length > 0 ? (
                 <View style={styles.container}>
-                  {productCategories.map((item: any) => (
+                  {productCategories?.map((item: any) => (
                     <ProductList
                       key={item.id}
                       item={item}

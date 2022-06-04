@@ -12,7 +12,7 @@ type ScreenProps = StackScreenProps<RootStackParamList, "Login">;
 
 const LoginScreen = ({ navigation }: ScreenProps) => {
   return (
-    <Box pt="20" width="95%" marginX="auto">
+    <Box pt="24" width="95%" marginX="auto">
       <CustomForm
         initialValues={{
           email: "",
