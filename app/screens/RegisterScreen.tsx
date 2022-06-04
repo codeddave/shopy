@@ -46,9 +46,9 @@ const RegisterScreen = () => {
             textContentType: "password",
           }}
         />
-        <Text pt="2">Forgot Password?</Text>
+        <Text pt="2">Already have an account?</Text>
 
-        <SubmitButton title="Log In" />
+        <SubmitButton title="Register" />
       </CustomForm>
     </Box>
   );
