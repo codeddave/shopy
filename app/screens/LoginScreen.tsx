@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { CustomForm, FormField } from "../components";
 import { Box } from "native-base";
@@ -13,7 +12,7 @@ const LoginScreen = () => {
             placeholder: "Email",
             keyboardType: "email-address",
             autoCapitalize: "none",
-            autoCorrect: false,
+            icon: "email",
             textContentType: "emailAddress",
           }}
         />
@@ -25,6 +24,7 @@ const LoginScreen = () => {
             secureTextEntry: true,
             autoCapitalize: "none",
             autoCorrect: false,
+            icon: "lock",
             textContentType: "password",
           }}
         />
