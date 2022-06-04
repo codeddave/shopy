@@ -6,6 +6,7 @@ import HomeNavigator from "./HomeNavigator";
 import { View } from "react-native";
 import CartIcon from "../components/cart/CartIcon";
 import CartNavigator from "./CartNavigator";
+import UserNavigator from "./UserNavigator";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -51,7 +52,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="User"
-        component={HomeNavigator}
+        component={UserNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({ size, color }) => (
