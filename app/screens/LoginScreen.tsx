@@ -14,11 +14,20 @@ const LoginScreen = () => {
             keyboardType: "email-address",
             autoCapitalize: "none",
             autoCorrect: false,
-            textContentType: "emailAddress, ",
+            textContentType: "emailAddress",
           }}
         />
 
-        <FormField name="password" />
+        <FormField
+          name="password"
+          {...{
+            placeholder: "Password",
+            secureTextEntry: true,
+            autoCapitalize: "none",
+            autoCorrect: false,
+            textContentType: "password",
+          }}
+        />
       </CustomForm>
     </Box>
   );
