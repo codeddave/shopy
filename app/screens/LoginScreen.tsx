@@ -1,11 +1,14 @@
 import React from "react";
-import { CustomForm, FormField } from "../components";
-import { Box } from "native-base";
+import { CustomForm, FormField, SubmitButton } from "../components";
+import { Box, Text } from "native-base";
 
 const LoginScreen = () => {
   return (
-    <Box>
+    <Box pt="20" width="95%" marginX="auto">
       <CustomForm initialValues={{}} onSubmit={() => console.log("hello")}>
+        <Text textAlign="center" marginBottom={2} fontSize="3xl">
+          Log In
+        </Text>
         <FormField
           name="email"
           {...{
@@ -28,6 +31,9 @@ const LoginScreen = () => {
             textContentType: "password",
           }}
         />
+        <Text pt="2">Forgot Password?</Text>
+
+        <SubmitButton title="Log In" />
       </CustomForm>
     </Box>
   );
