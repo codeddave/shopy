@@ -19,6 +19,10 @@ export const register = async (registerData: {
   return apiClient.post(AUTH_ROUTES.REGISTER, registerData);
 };
 
+export const authApi = {
+  logIn,
+  register,
+};
 /* export const forgotPassword = async (email) => {
   return apiClient.post("/user/forgot-password", { email });
 }; */
