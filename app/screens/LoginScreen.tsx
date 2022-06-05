@@ -3,7 +3,7 @@ import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { SCREENS } from "../constants/routes/AppScreens";
-
+import { LoginSchema } from "../definitions";
 type RootStackParamList = {
   Login: undefined;
   Register: undefined;
@@ -19,6 +19,7 @@ const LoginScreen = ({ navigation }: ScreenProps) => {
           email: "",
           password: "",
         }}
+        validationSchema={LoginSchema}
         onSubmit={() => console.log("hello")}
       >
         <Text textAlign="center" marginBottom={2} fontSize="3xl">
