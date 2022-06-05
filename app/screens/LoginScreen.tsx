@@ -50,7 +50,7 @@ const LoginScreen = ({ navigation }: ScreenProps) => {
           onPress={() => navigation.navigate(SCREENS.REGISTER as any)}
           pt="2"
         >
-          Don't have an account?
+          Don't have an account? <Text fontWeight="bold">Register</Text>
         </Text>
         {/*   <Text onPress={() => navigation.navigate("Register")} pt="2">
           Forgot Password?

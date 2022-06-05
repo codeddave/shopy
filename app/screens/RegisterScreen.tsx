@@ -61,7 +61,7 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
             onPress={() => navigation.navigate(SCREENS.LOGIN as any)}
             pt="2"
           >
-            Already have an account?
+            Already have an account? <Text fontStyle="italic">Login</Text>
           </Text>
 
           <SubmitButton title="Register" />
