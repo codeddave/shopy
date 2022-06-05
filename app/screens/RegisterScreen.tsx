@@ -26,13 +26,7 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
           validationSchema={RegisterSchema}
           onSubmit={() => console.log("hello")}
         >
-          <Text
-            color="red.500"
-            textAlign="center"
-            marginTop={4}
-            mb="6"
-            fontSize="3xl"
-          >
+          <Text textAlign="center" marginTop={4} mb="6" fontSize="3xl">
             Register
           </Text>
           <FormField
