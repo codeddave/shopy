@@ -5,8 +5,8 @@ export const UNAUTHENTICATED_ROUTES = {
 export const AUTH_ROUTES = {
   HOME: "/",
   FORGOT_PASSWORD: "/auth/forgot-password",
-  LOGIN: "/auth/login",
-  SIGNUP: "/auth/signup",
+  LOGIN: "/users/login",
+  REGISTER: "/users/register",
 };
 
 export const AUTHENTICATED_ROUTES = {};
