@@ -10,18 +10,20 @@ export const register = createAsyncThunk(
     fullName: string;
   }) => {
     const response = await authApi.register(registerData);
-    return response.data;
+    return response.data as CurrentUser;
   }
 );
 
 type UserState = {
   user: CurrentUser | null;
   isLoading: SliceStatus;
+  error?: string;
 };
 
 const initialState: UserState = {
   user: null,
   isLoading: SliceStatus.idle,
+  error: "",
 };
 
 const userSlice = createSlice({
@@ -30,6 +32,20 @@ const userSlice = createSlice({
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase();
+    builder
+      .addCase(register.pending, (state) => {
+        state.isLoading = SliceStatus.pending;
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.isLoading = SliceStatus.resolved;
+        state.user = action.payload;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.isLoading = SliceStatus.rejected;
+        state.error = action.error.message;
+      });
   },
 });
+
+export const { reducer: userReducer, name: userReducerName } = userSlice;
+export type UserStateType = ReturnType<typeof userReducer>;
