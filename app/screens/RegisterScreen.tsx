@@ -4,6 +4,7 @@ import { Box, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { SCREENS } from "../constants/routes/AppScreens";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { RegisterSchema } from "../definitions";
 
 type RootStackParamList = {
   Login: undefined;
@@ -21,6 +22,7 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
             email: "",
             password: "",
           }}
+          validationSchema={RegisterSchema}
           onSubmit={() => console.log("hello")}
         >
           <Text textAlign="center" marginTop={4} mb="6" fontSize="3xl">
