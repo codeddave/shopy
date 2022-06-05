@@ -19,17 +19,24 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
       <Box pt="24" width="94%" marginX="auto">
         <CustomForm
           initialValues={{
+            fullName: "",
             email: "",
             password: "",
           }}
           validationSchema={RegisterSchema}
           onSubmit={() => console.log("hello")}
         >
-          <Text textAlign="center" marginTop={4} mb="6" fontSize="3xl">
+          <Text
+            color="red.500"
+            textAlign="center"
+            marginTop={4}
+            mb="6"
+            fontSize="3xl"
+          >
             Register
           </Text>
           <FormField
-            name="name"
+            name="fullName"
             {...{
               placeholder: "Full Name",
               autoCorrect: false,

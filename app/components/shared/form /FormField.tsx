@@ -3,6 +3,7 @@ import React, { FC } from "react";
 //import ErrorMessage from "../components/ErrorMessage";
 import { useFormikContext } from "formik";
 import CustomTextInput from "./CustomTextInput";
+import { Text } from "native-base";
 
 type Props = {
   name: string;
@@ -23,7 +24,9 @@ const AppFormField: FC<Props> = ({ name, width, ...otherProps }) => {
         {...otherProps}
         width={width}
       />
-      {/*{touched[name] ? <ErrorMessage error={errors[name]} /> : null} */}
+      {touched[name] && errors[name] ? (
+        <Text color="red.500"> {errors[name]} </Text>
+      ) : null}
     </>
   );
 };

@@ -8,13 +8,13 @@ type Props = {
 };
 const CustomForm: FC<Props> = ({
   initialValues,
-  //validationSchema,
+  validationSchema,
   onSubmit,
   children,
 }) => {
   return (
     <Formik
-      //validationSchema={validationSchema}
+      validationSchema={validationSchema}
       initialValues={initialValues}
       onSubmit={onSubmit}
     >
