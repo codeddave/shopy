@@ -6,6 +6,8 @@ import { SCREENS } from "../constants/routes/AppScreens";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { RegisterFormData, RegisterSchema } from "../definitions";
 import { register } from "../redux";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 
 type RootStackParamList = {
   Login: undefined;
@@ -14,19 +16,23 @@ type RootStackParamList = {
 
 type ScreenProps = StackScreenProps<RootStackParamList, "Register">;
 
-const initilValues: RegisterFormData = {};
+const initilValues: RegisterFormData = {
+  fullName: "",
+  email: "",
+  password: "",
+};
 const RegisterScreen = ({ navigation }: ScreenProps) => {
+  const dispatch: AppDispatch = useDispatch();
+  const handleSubmit = (values: any): void => {
+    dispatch(register(values as RegisterFormData));
+  };
   return (
     <KeyboardAwareScrollView enableOnAndroid>
       <Box pt="24" width="94%" marginX="auto">
         <CustomForm
-          initialValues={{
-            fullName: "",
-            email: "",
-            password: "",
-          }}
+          initialValues={initilValues}
           validationSchema={RegisterSchema}
-          onSubmit={(values) => register(values)}
+          onSubmit={handleSubmit}
         >
           <Text textAlign="center" marginTop={4} mb="6" fontSize="3xl">
             Register
