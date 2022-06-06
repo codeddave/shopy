@@ -5,7 +5,7 @@ import { create } from "apisauce";
 });
  */
 const apiClient = create({
-  baseURL: "https://let-itgo.herokuapp.com",
+  baseURL: "http://localhost:5500",
 });
 export const logIn = async (loginData: { email: string; password: string }) => {
   return apiClient.post(AUTH_ROUTES.LOGIN, loginData);

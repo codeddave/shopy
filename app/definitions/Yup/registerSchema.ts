@@ -1,6 +1,5 @@
 import * as Yup from "yup";
-
-export const RegisterSchema = Yup.object().shape({
+export const RegisterSchema = Yup.object({
   fullName: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
@@ -8,6 +7,16 @@ export const RegisterSchema = Yup.object().shape({
     .test("invalid", "Must include first and last name", (name) =>
       /^[a-zA-Z]+ [a-zA-Z]+/.test(name || "")
     ),
-  email: Yup.string().required().email().label("Email"),
-  password: Yup.string().required().label("Password"),
-});
+  email: Yup.string()
+    .trim()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .email("Invalid email")
+    .required("Required"),
+  password: Yup.string()
+    .min(8, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+}).required();
+
+export type RegisterFormData = Yup.InferType<typeof RegisterSchema>;
