@@ -4,7 +4,8 @@ import { Box, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { SCREENS } from "../constants/routes/AppScreens";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { RegisterSchema } from "../definitions";
+import { RegisterFormData, RegisterSchema } from "../definitions";
+import { register } from "../redux";
 
 type RootStackParamList = {
   Login: undefined;
@@ -13,6 +14,7 @@ type RootStackParamList = {
 
 type ScreenProps = StackScreenProps<RootStackParamList, "Register">;
 
+const initilValues: RegisterFormData = {};
 const RegisterScreen = ({ navigation }: ScreenProps) => {
   return (
     <KeyboardAwareScrollView enableOnAndroid>
@@ -24,7 +26,7 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
             password: "",
           }}
           validationSchema={RegisterSchema}
-          onSubmit={() => console.log("hello")}
+          onSubmit={(values) => register(values)}
         >
           <Text textAlign="center" marginTop={4} mb="6" fontSize="3xl">
             Register
