@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, ActivityIndicator } from "react-native";
 
 import { NavigationScreenProp } from "react-navigation";
@@ -8,14 +8,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import { Categories } from "../components";
-//import { useFetchProducts } from "../components/hooks/apiHooks/useFetchProducts";
 import { SliceStatus } from "../interfaces";
 import {
   useFetchCategories,
   useFetchProducts,
 } from "../components/hooks/apiHooks";
-
-//import { StackScreenProps} from "@react-navigation/stack";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
