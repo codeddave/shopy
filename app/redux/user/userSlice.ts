@@ -13,6 +13,13 @@ export const register = createAsyncThunk(
     return response.data as CurrentUser;
   }
 );
+export const logIn = createAsyncThunk(
+  "user/register",
+  async (loginData: { email: string; password: string }) => {
+    const response = await authApi.logIn(loginData);
+    return response.data as CurrentUser;
+  }
+);
 
 type UserState = {
   user: CurrentUser | null;
@@ -41,6 +48,17 @@ const userSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
+        state.isLoading = SliceStatus.rejected;
+        state.error = action.error.message;
+      })
+      .addCase(logIn.pending, (state) => {
+        state.isLoading = SliceStatus.pending;
+      })
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.isLoading = SliceStatus.resolved;
+        state.user = action.payload;
+      })
+      .addCase(logIn.rejected, (state, action) => {
         state.isLoading = SliceStatus.rejected;
         state.error = action.error.message;
       });
