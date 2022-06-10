@@ -3,7 +3,10 @@ import { CustomForm, FormField, SubmitButton } from "../components";
 import { Box, Text } from "native-base";
 import { StackScreenProps } from "@react-navigation/stack";
 import { SCREENS } from "../constants/routes/AppScreens";
-import { LoginSchema } from "../definitions";
+import { LoginFormData, LoginSchema } from "../definitions";
+import { logIn } from "../redux";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../redux/store";
 type RootStackParamList = {
   Login: undefined;
   Register: undefined;
@@ -12,6 +15,10 @@ type RootStackParamList = {
 type ScreenProps = StackScreenProps<RootStackParamList, "Login">;
 
 const LoginScreen = ({ navigation }: ScreenProps) => {
+  const dispatch: AppDispatch = useDispatch();
+  const handleSubmit = (values: any): void => {
+    dispatch(logIn(values as LoginFormData));
+  };
   return (
     <Box pt="24" width="94%" marginX="auto">
       <CustomForm
@@ -20,7 +27,7 @@ const LoginScreen = ({ navigation }: ScreenProps) => {
           password: "",
         }}
         validationSchema={LoginSchema}
-        onSubmit={() => console.log("hello")}
+        onSubmit={handleSubmit}
       >
         <Text textAlign="center" marginBottom={2} fontSize="3xl">
           Log In
