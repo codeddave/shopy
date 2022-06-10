@@ -16,7 +16,7 @@ type RootStackParamList = {
 
 type ScreenProps = StackScreenProps<RootStackParamList, "Register">;
 
-const initilValues: RegisterFormData = {
+const initialValues: RegisterFormData = {
   fullName: "",
   email: "",
   password: "",
@@ -30,7 +30,7 @@ const RegisterScreen = ({ navigation }: ScreenProps) => {
     <KeyboardAwareScrollView enableOnAndroid>
       <Box pt="24" width="94%" marginX="auto">
         <CustomForm
-          initialValues={initilValues}
+          initialValues={initialValues}
           validationSchema={RegisterSchema}
           onSubmit={handleSubmit}
         >
