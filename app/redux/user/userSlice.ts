@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { authApi } from "../../api/auth";
 import { CurrentUser, SliceStatus } from "../../interfaces";
+import decode from "jwt-decode";
 
 export const register = createAsyncThunk(
   "user/register",
@@ -14,10 +15,11 @@ export const register = createAsyncThunk(
   }
 );
 export const logIn = createAsyncThunk(
-  "user/register",
+  "user/logIn",
   async (loginData: { email: string; password: string }) => {
     const response = await authApi.logIn(loginData);
-    return response.data as CurrentUser;
+    const user = decode(response.data as any);
+    return user as CurrentUser;
   }
 );
 
