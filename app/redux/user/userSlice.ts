@@ -18,7 +18,7 @@ export const logIn = createAsyncThunk(
   "user/logIn",
   async (loginData: { email: string; password: string }) => {
     const response = await authApi.logIn(loginData);
-    const user = decode(response.data as any);
+    const user = decode(response.data as string);
     return user as CurrentUser;
   }
 );
