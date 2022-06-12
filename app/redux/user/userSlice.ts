@@ -21,9 +21,15 @@ export const logIn = createAsyncThunk(
   async (loginData: { email: string; password: string }) => {
     const response = await authApi.logIn(loginData);
     const user = decode(response.data as string);
-
     navigate(SCREENS.HOME);
     return user as CurrentUser;
+  }
+);
+export const getUserById = createAsyncThunk(
+  "user/getUserById",
+  async (id: string) => {
+    const response = await authApi.getUser(id);
+    return response.data as CurrentUser;
   }
 );
 
@@ -31,12 +37,14 @@ type UserState = {
   user: CurrentUser | null;
   isLoading: SliceStatus;
   error?: string;
+  userProfile: CurrentUser | null;
 };
 
 const initialState: UserState = {
   user: null,
   isLoading: SliceStatus.idle,
   error: "",
+  userProfile: null,
 };
 
 const userSlice = createSlice({
@@ -65,6 +73,17 @@ const userSlice = createSlice({
         state.user = action.payload;
       })
       .addCase(logIn.rejected, (state, action) => {
+        state.isLoading = SliceStatus.rejected;
+        state.error = action.error.message;
+      })
+      .addCase(getUserById.pending, (state) => {
+        state.isLoading = SliceStatus.pending;
+      })
+      .addCase(getUserById.fulfilled, (state, action) => {
+        state.isLoading = SliceStatus.resolved;
+        state.userProfile = action.payload;
+      })
+      .addCase(getUserById.rejected, (state, action) => {
         state.isLoading = SliceStatus.rejected;
         state.error = action.error.message;
       });
