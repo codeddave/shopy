@@ -1,7 +1,8 @@
+import { Text } from "native-base";
 import React from "react";
 
 const UserScreen = () => {
-  return <div>UserScreen</div>;
+  return <Text>UserScreen</Text>;
 };
 
 export default UserScreen;

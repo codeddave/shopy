@@ -1,9 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { LoginScreen, RegisterScreen } from "../screens";
+import { LoginScreen, RegisterScreen, UserScreen } from "../screens";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux";
-import UserScreen from "../screens/UserScreen";
 const Stack = createStackNavigator();
 const UserNavigator = () => {
   const user = useSelector(selectUser);
