@@ -7,3 +7,4 @@ export { default as ProductScreen } from "./ProductScreen";
 export { default as ProductDetailScreen } from "./ProductDetailScreen";
 export { default as RegisterScreen } from "./RegisterScreen";
 export { default as SearchedProductsScreen } from "./SearchedProductsScreen";
+export { default as UserScreen } from "./UserScreen";
