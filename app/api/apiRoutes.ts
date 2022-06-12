@@ -7,6 +7,7 @@ export const AUTH_ROUTES = {
   FORGOT_PASSWORD: "/auth/forgot-password",
   LOGIN: "/users/login",
   REGISTER: "/users/register",
+  GET_USER: (id: string) => `/users/${id}`,
 };
 
 export const AUTHENTICATED_ROUTES = {};
