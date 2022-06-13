@@ -9,3 +9,4 @@ export const selectUserProfile = createSelector(
   user,
   (user) => user.userProfile
 );
+export const selectUserToken = createSelector(user, (user) => user.token);
