@@ -7,20 +7,26 @@ import { SCREENS } from "../../constants";
 
 export const register = createAsyncThunk(
   "user/register",
-  async (registerData: {
-    email: string;
-    password: string;
-    fullName: string;
-  }) => {
+  async (
+    registerData: {
+      email: string;
+      password: string;
+      fullName: string;
+    },
+    { dispatch }
+  ) => {
     const response = await authApi.register(registerData);
-    return response.data as CurrentUser;
+    dispatch(setToken(response.data as string));
+    const user = decode(response.data as string);
+    navigate(SCREENS.HOME);
+    return user as CurrentUser;
   }
 );
 export const logIn = createAsyncThunk(
   "user/logIn",
-  async (loginData: { email: string; password: string }) => {
+  async (loginData: { email: string; password: string }, { dispatch }) => {
     const response = await authApi.logIn(loginData);
-    setToken(response.data as string);
+    dispatch(setToken(response.data as string));
     const user = decode(response.data as string);
     navigate(SCREENS.HOME);
     return user as CurrentUser;
@@ -56,6 +62,10 @@ const userSlice = createSlice({
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
+    },
+    logOut: (state) => {
+      state.user = null;
+      state.token = null;
     },
   },
 
@@ -100,6 +110,6 @@ const userSlice = createSlice({
 export const {
   reducer: userReducer,
   name: userReducerName,
-  actions: { setToken },
+  actions: { setToken, logOut },
 } = userSlice;
 export type UserStateType = ReturnType<typeof userReducer>;
