@@ -1,5 +1,4 @@
-import { View, Text } from "react-native";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { getUserById, selectUser, selectUserProfile } from "../../../redux";
 import { useDispatch, useSelector } from "react-redux";

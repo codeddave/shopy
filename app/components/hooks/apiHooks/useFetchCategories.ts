@@ -3,10 +3,10 @@ import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SliceStatus } from "../../../interfaces";
 import {
+  getCategories,
   selectCategories,
   selectCategoriesLoading,
-} from "../../../redux/categories";
-import { getCategories } from "../../../redux/categories/categorySlice";
+} from "../../../redux";
 import { AppDispatch } from "../../../redux/store";
 
 export const useFetchCategories = (): {
