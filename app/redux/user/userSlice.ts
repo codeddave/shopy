@@ -20,6 +20,7 @@ export const logIn = createAsyncThunk(
   "user/logIn",
   async (loginData: { email: string; password: string }) => {
     const response = await authApi.logIn(loginData);
+    setToken(response.data as string);
     const user = decode(response.data as string);
     navigate(SCREENS.HOME);
     return user as CurrentUser;
@@ -38,6 +39,7 @@ type UserState = {
   isLoading: SliceStatus;
   error?: string;
   userProfile: CurrentUser | null;
+  token: string | null;
 };
 
 const initialState: UserState = {
@@ -45,12 +47,17 @@ const initialState: UserState = {
   isLoading: SliceStatus.idle,
   error: "",
   userProfile: null,
+  token: null,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -90,5 +97,9 @@ const userSlice = createSlice({
   },
 });
 
-export const { reducer: userReducer, name: userReducerName } = userSlice;
+export const {
+  reducer: userReducer,
+  name: userReducerName,
+  actions: { setToken },
+} = userSlice;
 export type UserStateType = ReturnType<typeof userReducer>;
