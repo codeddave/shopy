@@ -7,6 +7,7 @@ import { LoginFormData, LoginSchema } from "../definitions";
 import { logIn } from "../redux";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../redux/store";
+
 type RootStackParamList = {
   Login: undefined;
   Register: undefined;

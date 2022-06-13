@@ -3,4 +3,5 @@ export type CurrentUser = {
   email: string;
   phone: string;
   isAdmin: boolean;
+  id: string;
 };

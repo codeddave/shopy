@@ -4,15 +4,18 @@ import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { AppNavigator, navigationRef } from "./app/navigation";
 import { Provider } from "react-redux";
-import store from "./app/redux/store";
+import store, { persistor } from "./app/redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 export default function App() {
   return (
     <NativeBaseProvider>
       <Provider store={store}>
-        <NavigationContainer ref={navigationRef as any}>
-          <Header />
-          <AppNavigator />
-        </NavigationContainer>
+        <PersistGate persistor={persistor}>
+          <NavigationContainer ref={navigationRef as any}>
+            <Header />
+            <AppNavigator />
+          </NavigationContainer>
+        </PersistGate>
       </Provider>
     </NativeBaseProvider>
   );
