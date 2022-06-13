@@ -1,8 +1,10 @@
 import { Text } from "native-base";
 import React from "react";
+import useFetchUserProfile from "../components/hooks/apiHooks/useFetchUserProfile";
 
 const UserScreen = () => {
-  return <Text>UserScreen</Text>;
+  const { userProfile } = useFetchUserProfile();
+  return <Text>{userProfile?.fullName}</Text>;
 };
 
 export default UserScreen;
