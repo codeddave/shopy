@@ -10,7 +10,12 @@ const UserScreen = () => {
   const dispatch = useDispatch();
 
   return (
-    <Box pt="16" width="94%" mx="auto">
+    <Box width="94%" mx="auto">
+      <Box mb="16" mt="3" display="flex" alignItems="flex-end">
+        <Button background="red.500" onPress={() => dispatch(logOut())}>
+          log out
+        </Button>
+      </Box>
       <Text textAlign="center" fontWeight="bold">
         {userProfile?.fullName}
       </Text>
@@ -18,7 +23,6 @@ const UserScreen = () => {
         <Text color="gray.500">Email</Text>
         <Text>{userProfile?.email}</Text>
       </Box>
-      {/*     <Button onPress={() => dispatch(logOut())}>log out</Button> */}
     </Box>
   );
 };
