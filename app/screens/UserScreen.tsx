@@ -10,7 +10,7 @@ const UserScreen = () => {
   const dispatch = useDispatch();
 
   return (
-    <Box pt="24" width="94%" mx="auto">
+    <Box pt="16" width="94%" mx="auto">
       <Text textAlign="center" fontWeight="bold">
         {userProfile?.fullName}
       </Text>
