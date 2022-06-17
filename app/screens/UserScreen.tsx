@@ -1,3 +1,4 @@
+import { startCase } from "lodash";
 import { Box, Button, Text } from "native-base";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -17,7 +18,7 @@ const UserScreen = () => {
         </Button>
       </Box>
       <Text textAlign="center" fontWeight="bold">
-        {userProfile?.fullName}
+        {startCase(userProfile?.fullName)}
       </Text>
       <Box pt="6">
         <Text color="gray.500">Email</Text>
