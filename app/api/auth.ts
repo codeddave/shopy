@@ -5,7 +5,7 @@ import { create } from "apisauce";
 });
  */
 const apiClient = create({
-  baseURL: "http://localhost:5500",
+  baseURL: "https://shopy-api.herokuapp.com",
 });
 export const logIn = async (loginData: { email: string; password: string }) => {
   return apiClient.post(AUTH_ROUTES.LOGIN, loginData);

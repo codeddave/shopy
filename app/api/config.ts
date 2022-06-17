@@ -1,7 +1,7 @@
 import { create } from "apisauce";
 
 const apiClient = create({
-  baseURL: "http://localhost:5500",
+  baseURL: "https://shopy-api.herokuapp.com",
 });
 
 export default apiClient;
