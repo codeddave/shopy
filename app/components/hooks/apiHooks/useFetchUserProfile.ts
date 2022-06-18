@@ -15,7 +15,9 @@ const useFetchUserProfile = (): {
 
   useFocusEffect(
     useCallback(() => {
-      dispatch(getUserById(user!.id));
+      if (user?.id) {
+        dispatch(getUserById(user.id));
+      }
     }, [])
   );
 
