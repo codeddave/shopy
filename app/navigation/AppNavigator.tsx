@@ -10,6 +10,7 @@ import UserNavigator from "./UserNavigator";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectUserToken } from "../redux";
 import decode from "jwt-decode";
+import useFetchUserProfile from "../components/hooks/apiHooks/useFetchUserProfile";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +19,7 @@ const AppNavigator = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Alert.alert("hi!!!");
+    //export to a hook
     if (userToken) {
       const decodedToken = decode(userToken) as any;
       if (decodedToken.exp * 1000 < new Date().getTime()) {
@@ -26,6 +27,8 @@ const AppNavigator = () => {
       }
     }
   }, []);
+  const { userProfile, user } = useFetchUserProfile();
+
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -55,17 +58,19 @@ const AppNavigator = () => {
           ),
         }}
       />
+      {user && userProfile ? (
+        <Tab.Screen
+          name="Admin"
+          component={HomeNavigator}
+          options={{
+            tabBarIcon: ({ size, color }) => (
+              <MaterialIcons name="verified-user" size={size} color={color} />
+            ),
+            headerShown: false,
+          }}
+        />
+      ) : null}
 
-      <Tab.Screen
-        name="Admin"
-        component={HomeNavigator}
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <MaterialIcons name="verified-user" size={size} color={color} />
-          ),
-          headerShown: false,
-        }}
-      />
       <Tab.Screen
         name="User"
         component={UserNavigator}
