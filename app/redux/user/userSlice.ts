@@ -66,6 +66,7 @@ const userSlice = createSlice({
     logOut: (state) => {
       state.user = null;
       state.token = null;
+      state.userProfile = null;
     },
   },
 

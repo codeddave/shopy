@@ -7,6 +7,7 @@ import { CurrentUser } from "../../../interfaces";
 
 const useFetchUserProfile = (): {
   userProfile: CurrentUser | null;
+  user: any;
 } => {
   const user = useSelector(selectUser);
 
@@ -23,6 +24,7 @@ const useFetchUserProfile = (): {
 
   return {
     userProfile,
+    user,
   };
 };
 

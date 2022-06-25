@@ -6,6 +6,7 @@ import { AppNavigator, navigationRef } from "./app/navigation";
 import { Provider } from "react-redux";
 import store, { persistor } from "./app/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+
 export default function App() {
   return (
     <NativeBaseProvider>
