@@ -13,6 +13,7 @@ import {
   useFetchCategories,
   useFetchProducts,
 } from "../components/hooks/apiHooks";
+import CustomActivityIndicator from "../components/shared/CustomActivityIndicator";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -63,9 +64,7 @@ const ProductScreen = ({ navigation }: Props) => {
     <>
       {isProductsLoading === SliceStatus.pending ||
       isCategoriesLoading === SliceStatus.pending ? (
-        <VStack alignItems="center" justifyContent="center" height="100%">
-          <ActivityIndicator />
-        </VStack>
+        <CustomActivityIndicator />
       ) : (
         <>
           <Input
