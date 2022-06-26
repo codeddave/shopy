@@ -10,8 +10,14 @@ import {
 import { AppDispatch } from "../../../redux/store";
 import { SliceStatus } from "../../../interfaces";
 
+type ProductData = {
+  name: string;
+  price: number;
+  countInStock: number;
+  image: string;
+};
 export const useFetchProducts = (): {
-  products: any;
+  products: ProductData[];
   productCategories: any;
   isProductsLoading: SliceStatus;
 } => {
