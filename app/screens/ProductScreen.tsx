@@ -7,13 +7,16 @@ import { Input, Icon, ScrollView, Text, VStack } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
-import { Categories } from "../components";
+import {
+  Categories,
+  CustomActivityIndicator,
+  SearchInput,
+} from "../components";
 import { SliceStatus } from "../interfaces";
 import {
   useFetchCategories,
   useFetchProducts,
 } from "../components/hooks/apiHooks";
-import CustomActivityIndicator from "../components/shared/CustomActivityIndicator";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -67,36 +70,7 @@ const ProductScreen = ({ navigation }: Props) => {
         <CustomActivityIndicator />
       ) : (
         <>
-          <Input
-            placeholder="Search"
-            width="100%"
-            variant="filled"
-            backgroundColor="whitesmoke"
-            borderRadius="10"
-            onFocus={openList}
-            onChangeText={(text) => searchProducts(text)}
-            py="1"
-            px="2"
-            borderWidth="0"
-            InputLeftElement={
-              <Icon
-                ml="2"
-                size="4"
-                color="gray.600"
-                as={<MaterialIcons name="search" />}
-              />
-            }
-            InputRightElement={
-              focus ? (
-                <Icon
-                  mr="2"
-                  size="3"
-                  color="gray.600"
-                  as={<MaterialIcons name="close" onPress={closeList} />}
-                />
-              ) : null
-            }
-          />
+          <SearchInput />
           {focus ? (
             <SearchedProductsScreen
               navigation={navigation}
