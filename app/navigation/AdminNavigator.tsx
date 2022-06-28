@@ -13,6 +13,7 @@ const AdminNavigator = () => {
         component={AdminProductsScreen}
         options={{
           title: "Products",
+          // headerShown: false,
         }}
       />
       <Stack.Screen name="AdminOrdersScreen" component={AdminOrdersScreen} />
