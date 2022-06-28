@@ -103,6 +103,8 @@ const AppNavigator = () => {
               color={tabColor(focused)}
             />
           ),
+          tabBarInactiveTintColor: "grey",
+          tabBarActiveTintColor: "#22c55e",
         }}
       />
     </Tab.Navigator>
