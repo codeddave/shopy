@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { View, StyleSheet, ActivityIndicator } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet } from "react-native";
 
 import { NavigationScreenProp } from "react-navigation";
 import ProductList from "../components/products/ProductList";
-import { Input, Icon, ScrollView, Text, VStack } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { ScrollView, Text } from "native-base";
+
 import SearchedProductsScreen from "./SearchedProductsScreen";
 import Banner from "../components/shared/Banner";
 import {
@@ -40,6 +40,10 @@ const ProductScreen = ({ navigation }: Props) => {
       )
     );
   };
+
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, []);
   const openList = () => {
     setFocus(true);
   };
@@ -70,7 +74,12 @@ const ProductScreen = ({ navigation }: Props) => {
         <CustomActivityIndicator />
       ) : (
         <>
-          <SearchInput />
+          <SearchInput
+            focus={focus}
+            onFocus={openList}
+            closeList={closeList}
+            searchProducts={searchProducts}
+          />
           {focus ? (
             <SearchedProductsScreen
               navigation={navigation}
