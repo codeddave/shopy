@@ -50,6 +50,8 @@ const AppNavigator = () => {
               color={tabColor(focused)}
             />
           ),
+          tabBarInactiveTintColor: "grey",
+          tabBarActiveTintColor: "#22c55e",
         }}
       />
       <Tab.Screen
@@ -67,6 +69,8 @@ const AppNavigator = () => {
               <CartIcon />
             </View>
           ),
+          tabBarInactiveTintColor: "grey",
+          tabBarActiveTintColor: "#22c55e",
         }}
       />
       {user && userProfile ? (
@@ -81,7 +85,8 @@ const AppNavigator = () => {
                 color={tabColor(focused)}
               />
             ),
-            headerShown: false,
+            tabBarInactiveTintColor: "grey",
+            tabBarActiveTintColor: "#22c55e",
           }}
         />
       ) : null}
