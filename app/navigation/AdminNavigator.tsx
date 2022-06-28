@@ -17,7 +17,6 @@ const AdminNavigator = () => {
       />
       <Stack.Screen name="AdminOrdersScreen" component={AdminOrdersScreen} />
 
-      <Stack.Screen name="AdminOrdersScreen" component={AdminOrdersScreen} />
       <Stack.Screen
         name="AdmincategoriesScreen"
         component={AdminCategoriesScreen}

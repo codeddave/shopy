@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectUserToken } from "../redux";
 import decode from "jwt-decode";
 import useFetchUserProfile from "../components/hooks/apiHooks/useFetchUserProfile";
+import AdminNavigator from "./AdminNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -61,7 +62,7 @@ const AppNavigator = () => {
       {user && userProfile ? (
         <Tab.Screen
           name="Admin"
-          component={HomeNavigator}
+          component={AdminNavigator}
           options={{
             tabBarIcon: ({ size, color }) => (
               <MaterialIcons name="verified-user" size={size} color={color} />
