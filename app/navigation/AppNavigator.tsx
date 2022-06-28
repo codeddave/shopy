@@ -29,7 +29,13 @@ const AppNavigator = () => {
     }
   }, []);
   const { userProfile, user } = useFetchUserProfile();
-
+  const tabColor = (focused: boolean) => {
+    if (focused) {
+      return "#22c55e";
+    } else {
+      return "grey";
+    }
+  };
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -37,8 +43,12 @@ const AppNavigator = () => {
         component={HomeNavigator}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons name="home" size={size} color={color} />
+          tabBarIcon: ({ size, focused }) => (
+            <MaterialCommunityIcons
+              name="home"
+              size={size}
+              color={tabColor(focused)}
+            />
           ),
         }}
       />
@@ -47,12 +57,12 @@ const AppNavigator = () => {
         component={CartNavigator}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size, color }) => (
+          tabBarIcon: ({ size, focused }) => (
             <View>
               <MaterialCommunityIcons
                 name="cart-outline"
                 size={size}
-                color={color}
+                color={tabColor(focused)}
               />
               <CartIcon />
             </View>
@@ -64,8 +74,12 @@ const AppNavigator = () => {
           name="Admin"
           component={AdminNavigator}
           options={{
-            tabBarIcon: ({ size, color }) => (
-              <MaterialIcons name="verified-user" size={size} color={color} />
+            tabBarIcon: ({ size, focused }) => (
+              <MaterialIcons
+                name="verified-user"
+                size={size}
+                color={tabColor(focused)}
+              />
             ),
             headerShown: false,
           }}
@@ -77,8 +91,12 @@ const AppNavigator = () => {
         component={UserNavigator}
         options={{
           headerShown: false,
-          tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons name="account" size={size} color={color} />
+          tabBarIcon: ({ size, focused }) => (
+            <MaterialCommunityIcons
+              name="account"
+              size={size}
+              color={tabColor(focused)}
+            />
           ),
         }}
       />
