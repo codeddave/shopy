@@ -5,7 +5,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 type Props = {
   focus: boolean;
   onFocus: () => void;
-  onChangeText: () => void;
   searchProducts: (text: string) => void;
   closeList: () => void;
 };
