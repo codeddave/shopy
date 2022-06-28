@@ -11,6 +11,7 @@ import {
   Categories,
   CustomActivityIndicator,
   SearchInput,
+  useProducts,
 } from "../components";
 import { SliceStatus } from "../interfaces";
 import {
@@ -27,13 +28,11 @@ const ProductScreen = ({ navigation }: Props) => {
   const [isActive, setIsActive] = useState<number>(-1);
   const [initialState, setInitialState] = useState<{}[]>([]);
 
-  const [focus, setFocus] = useState(false);
-
   const { products, productCategories, isProductsLoading } = useFetchProducts();
   const { categories, isCategoriesLoading } = useFetchCategories();
-
+  const { openList, closeList, focus } = useProducts();
   const searchProducts = (text: string) => {
-    text === "" ? setFocus(false) : setFocus(true);
+    text === "" ? closeList() : openList();
     setFilteredProducts(
       products.filter((product: any) =>
         product.name.toLowerCase().includes(text.toLowerCase())
@@ -44,12 +43,7 @@ const ProductScreen = ({ navigation }: Props) => {
   useEffect(() => {
     setFilteredProducts(products);
   }, []);
-  const openList = () => {
-    setFocus(true);
-  };
-  const closeList = () => {
-    setFocus(false);
-  };
+
   /*   const closeListAndClearnbkjb = () => {
     setFocus(false);
   }; */
