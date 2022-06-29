@@ -3,7 +3,7 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeNavigator from "./HomeNavigator";
-import { Alert, View } from "react-native";
+import { View } from "react-native";
 import CartIcon from "../components/cart/CartIcon";
 import CartNavigator from "./CartNavigator";
 import UserNavigator from "./UserNavigator";
