@@ -78,6 +78,8 @@ const AppNavigator = () => {
           name="Admin"
           component={AdminNavigator}
           options={{
+            headerShown: false,
+
             tabBarIcon: ({ size, focused }) => (
               <MaterialIcons
                 name="verified-user"
