@@ -7,6 +7,7 @@ import {
 } from "../../components";
 import { Box, Text } from "native-base";
 import { SliceStatus } from "../../interfaces";
+import { FlatList } from "react-native";
 
 const AdminProductsScreen = () => {
   const { products, isProductsLoading } = useFetchProducts();
@@ -23,11 +24,15 @@ const AdminProductsScreen = () => {
             searchProducts={() => console.log("khdv")}
             focus={focus}
           />
-          {products.map((product) => (
+          <FlatList
+            data={products}
+            renderItem={({ item }) => <Text>{item.name}</Text>}
+          />
+          {/*  {products.map((product) => (
             <>
-              <Text>{product.name}</Text>
+             
             </>
-          ))}
+          ))} */}
         </>
       )}
     </Box>
