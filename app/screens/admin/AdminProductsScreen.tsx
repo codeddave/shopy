@@ -27,6 +27,7 @@ const AdminProductsScreen = () => {
           <FlatList
             data={products}
             renderItem={({ item }) => <Text>{item.name}</Text>}
+            keyExtractor={(item) => item.id}
           />
           {/*  {products.map((product) => (
             <>
