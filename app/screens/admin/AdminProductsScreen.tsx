@@ -28,9 +28,22 @@ const AdminProductsScreen = () => {
           <FlatList
             data={products}
             renderItem={({ item }) => (
-              <Box>
-                <TouchableOpacity>
-                  <Image source={{ uri: item.image ? item.image : "" }} />
+              <TouchableOpacity>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-between"
+                >
+                  <Image
+                    source={{
+                      uri: item.image
+                        ? item.image
+                        : "https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png",
+                    }}
+                    w="1/6"
+                    h="10"
+                    resizeMode="contain"
+                  />
 
                   <Text> {item.brand}</Text>
                   <Text numberOfLines={1} ellipsizeMode="tail">
@@ -40,8 +53,8 @@ const AdminProductsScreen = () => {
                     {item.category.name}
                   </Text>
                   <Text> ${item.price}</Text>
-                </TouchableOpacity>
-              </Box>
+                </Box>
+              </TouchableOpacity>
             )}
             keyExtractor={(item) => item.id}
           />
