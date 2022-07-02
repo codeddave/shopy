@@ -34,9 +34,12 @@ const AdminProductsScreen = () => {
 
                   <Text> {item.brand}</Text>
                   <Text numberOfLines={1} ellipsizeMode="tail">
-                    {" "}
                     {item.name}
                   </Text>
+                  <Text numberOfLines={1} ellipsizeMode="tail">
+                    {item.category.name}
+                  </Text>
+                  <Text> ${item.price}</Text>
                 </TouchableOpacity>
               </Box>
             )}
