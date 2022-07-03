@@ -34,25 +34,27 @@ const AdminProductsScreen = () => {
                   flexDirection="row"
                   justifyContent="space-between"
                 >
-                  <Image
-                    source={{
-                      uri: item.image
-                        ? item.image
-                        : "https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png",
-                    }}
-                    w="1/6"
-                    h="10"
-                    resizeMode="contain"
-                  />
+                  <Box w="1/6" h="10">
+                    <Image
+                      source={{
+                        uri: "https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png",
+                      }}
+                      resizeMode="contain"
+                      w="full"
+                      h="full"
+                    />
+                  </Box>
 
-                  <Text> {item.brand}</Text>
-                  <Text numberOfLines={1} ellipsizeMode="tail">
+                  <Text numberOfLines={1} ellipsizeMode="tail" w="1/6">
+                    {item.brand}
+                  </Text>
+                  <Text w="1/6" numberOfLines={1} ellipsizeMode="tail">
                     {item.name}
                   </Text>
-                  <Text numberOfLines={1} ellipsizeMode="tail">
+                  <Text w="1/6" numberOfLines={1} ellipsizeMode="tail">
                     {item.category.name}
                   </Text>
-                  <Text> ${item.price}</Text>
+                  <Text w="1/6"> ${item.price}</Text>
                 </Box>
               </TouchableOpacity>
             )}
