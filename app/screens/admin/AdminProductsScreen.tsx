@@ -8,8 +8,8 @@ import {
 } from "../../components";
 import { Box, Image, Text } from "native-base";
 import { SliceStatus } from "../../interfaces";
-import { FlatList, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { FlatList } from "react-native";
+import ListHeader from "../../components/admin/ListHeader";
 
 const AdminProductsScreen = () => {
   const { products, isProductsLoading } = useFetchProducts();
@@ -26,9 +26,10 @@ const AdminProductsScreen = () => {
             searchProducts={() => console.log("khdv")}
             focus={focus}
           />
-          <Box mt="4">
+          <Box mt="2">
             <FlatList
               data={products}
+              ListHeaderComponent={ListHeader}
               renderItem={({ item }) => <ListItem item={item} />}
               keyExtractor={(item) => item.id}
             />

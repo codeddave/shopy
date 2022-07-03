@@ -56,6 +56,7 @@ export const ListItem: FC<Props> = ({ item }) => {
 const styles = StyleSheet.create({
   container: {
     paddingBottom: 12,
+    paddingTop: 4,
   },
 });
 export default ListItem;
