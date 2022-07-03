@@ -16,6 +16,13 @@ type ProductData = {
   countInStock: number;
   image: string;
   id: string;
+  brand: string;
+  category: {
+    name: string;
+    icon: string;
+    image: string;
+    color: string;
+  };
 };
 export const useFetchProducts = (): {
   products: ProductData[];

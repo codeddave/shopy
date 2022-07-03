@@ -6,7 +6,7 @@ const getProducts = async () => {
 };
 
 const searchProducts = async (searchTerm: string) => {
-  client.get(UNAUTHENTICATED_ROUTES.SEARCH_PRODUCTS(searchTerm));
+  return client.get(UNAUTHENTICATED_ROUTES.SEARCH_PRODUCTS(searchTerm));
 };
 export const productApi = {
   getProducts,

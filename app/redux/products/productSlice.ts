@@ -11,15 +11,24 @@ export const getProducts = createAsyncThunk(
     return response.data;
   }
 );
+export const searchProducts = createAsyncThunk(
+  "products/searchProducts",
+  async (searchTerm: string) => {
+    const response = await productApi.searchProducts(searchTerm);
+    return response.data;
+  }
+);
 type ProductState = {
   products: any[];
   isLoading: SliceStatus;
   error?: string;
+  searchedProducts: any[];
 };
 const initialState: ProductState = {
   products: [],
   isLoading: SliceStatus.idle,
   error: "",
+  searchedProducts: [],
 };
 
 const productSlice = createSlice({
