@@ -10,10 +10,18 @@ const ListHeader = () => {
       alignItems="center"
     >
       <Box w="1/6" h="4"></Box>
-      <Text w="1/6">Brand</Text>
-      <Text w="1/6">Name</Text>
-      <Text w="1/6">Category</Text>
-      <Text w="1/6">Price</Text>
+      <Text w="1/6" fontWeight="bold">
+        Brand
+      </Text>
+      <Text w="1/6" fontWeight="bold">
+        Name
+      </Text>
+      <Text w="1/6" fontWeight="bold">
+        Category
+      </Text>
+      <Text w="1/6" fontWeight="bold">
+        Price
+      </Text>
     </Box>
   );
 };
