@@ -7,7 +7,7 @@ import {
 } from "../../components";
 import { Box, Image, Text } from "native-base";
 import { SliceStatus } from "../../interfaces";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const AdminProductsScreen = () => {
@@ -28,11 +28,12 @@ const AdminProductsScreen = () => {
           <FlatList
             data={products}
             renderItem={({ item }) => (
-              <TouchableOpacity>
+              <TouchableOpacity style={styles.container}>
                 <Box
                   display="flex"
                   flexDirection="row"
                   justifyContent="space-between"
+                  alignItems="center"
                 >
                   <Box w="1/6" h="10">
                     <Image
@@ -70,5 +71,9 @@ const AdminProductsScreen = () => {
     </Box>
   );
 };
-
+const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 12,
+  },
+});
 export default AdminProductsScreen;
