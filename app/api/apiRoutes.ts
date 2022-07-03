@@ -1,6 +1,8 @@
 export const UNAUTHENTICATED_ROUTES = {
   ALL_PRODUCTS: "/products",
   ALL_CATEGORIES: "/categories",
+  SEARCH_PRODUCTS: (searchTerm: string) =>
+    `products/search/?searchTerm=${searchTerm}`,
 };
 export const AUTH_ROUTES = {
   HOME: "/",
