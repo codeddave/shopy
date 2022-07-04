@@ -5,16 +5,17 @@ import {
   SearchInput,
   useFetchProducts,
   useProducts,
+  useSearchProducts,
 } from "../../components";
-import { Box } from "native-base";
+import { Box, Text } from "native-base";
 import { SliceStatus } from "../../interfaces";
 import { FlatList } from "react-native";
 import ListHeader from "../../components/admin/ListHeader";
-import { searchProducts } from "../../redux";
 
 const AdminProductsScreen = () => {
   const { products, isProductsLoading } = useFetchProducts();
   const { openList, closeList, focus } = useProducts();
+  const { showSearchProducts, handleSearchProducts } = useSearchProducts();
   return (
     <Box>
       {isProductsLoading === SliceStatus.pending ? (
@@ -24,17 +25,21 @@ const AdminProductsScreen = () => {
           <SearchInput
             onFocus={openList}
             closeList={closeList}
-            searchProducts={searchProducts}
+            searchProducts={handleSearchProducts}
             focus={focus}
           />
-          <Box mt="2">
-            <FlatList
-              data={products}
-              ListHeaderComponent={ListHeader}
-              renderItem={({ item }) => <ListItem item={item} />}
-              keyExtractor={(item) => item.id}
-            />
-          </Box>
+          {showSearchProducts ? (
+            <Text>hello</Text>
+          ) : (
+            <Box mt="2">
+              <FlatList
+                data={products}
+                ListHeaderComponent={ListHeader}
+                renderItem={({ item }) => <ListItem item={item} />}
+                keyExtractor={(item) => item.id}
+              />
+            </Box>
+          )}
         </>
       )}
     </Box>
