@@ -23,12 +23,14 @@ type ProductState = {
   isLoading: SliceStatus;
   error?: string;
   searchedProducts: any[];
+  isLoadingSearchedProducts: SliceStatus;
 };
 const initialState: ProductState = {
   products: [],
   isLoading: SliceStatus.idle,
   error: "",
   searchedProducts: [],
+  isLoadingSearchedProducts: SliceStatus.idle,
 };
 
 const productSlice = createSlice({
