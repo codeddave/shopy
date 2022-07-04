@@ -6,10 +6,11 @@ import {
   useFetchProducts,
   useProducts,
 } from "../../components";
-import { Box, Image, Text } from "native-base";
+import { Box } from "native-base";
 import { SliceStatus } from "../../interfaces";
 import { FlatList } from "react-native";
 import ListHeader from "../../components/admin/ListHeader";
+import { searchProducts } from "../../redux";
 
 const AdminProductsScreen = () => {
   const { products, isProductsLoading } = useFetchProducts();
@@ -23,7 +24,7 @@ const AdminProductsScreen = () => {
           <SearchInput
             onFocus={openList}
             closeList={closeList}
-            searchProducts={() => console.log("khdv")}
+            searchProducts={searchProducts}
             focus={focus}
           />
           <Box mt="2">
