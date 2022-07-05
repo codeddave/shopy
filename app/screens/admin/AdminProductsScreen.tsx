@@ -15,10 +15,16 @@ import ListHeader from "../../components/admin/ListHeader";
 const AdminProductsScreen = () => {
   const { products, isProductsLoading } = useFetchProducts();
   const { openList, closeList, focus } = useProducts();
-  const { showSearchProducts, handleSearchProducts } = useSearchProducts();
+  const {
+    showSearchProducts,
+    handleSearchProducts,
+    searchedProducts,
+    isLoadingSearchedProducts,
+  } = useSearchProducts();
   return (
     <Box>
-      {isProductsLoading === SliceStatus.pending ? (
+      {isProductsLoading === SliceStatus.pending ||
+      isLoadingSearchedProducts === SliceStatus.pending ? (
         <CustomActivityIndicator />
       ) : (
         <>
@@ -29,7 +35,14 @@ const AdminProductsScreen = () => {
             focus={focus}
           />
           {showSearchProducts ? (
-            <Text>hello</Text>
+            <Box mt="2">
+              <FlatList
+                data={searchedProducts}
+                ListHeaderComponent={ListHeader}
+                renderItem={({ item }) => <ListItem item={item} />}
+                keyExtractor={(item) => item.id}
+              />
+            </Box>
           ) : (
             <Box mt="2">
               <FlatList
