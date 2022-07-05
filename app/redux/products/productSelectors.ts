@@ -11,3 +11,11 @@ export const selectProductsLoading = createSelector(
   getProduct,
   (product) => product.isLoading
 );
+export const selectSearchedProducts = createSelector(
+  getProduct,
+  (product) => product.searchedProducts
+);
+export const selectSearchedProductsLoading = createSelector(
+  getProduct,
+  (product) => product.isLoadingSearchedProducts
+);
