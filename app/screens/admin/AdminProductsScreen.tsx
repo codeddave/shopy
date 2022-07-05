@@ -7,7 +7,7 @@ import {
   useProducts,
   useSearchProducts,
 } from "../../components";
-import { Box, Text } from "native-base";
+import { Box } from "native-base";
 import { SliceStatus } from "../../interfaces";
 import { FlatList } from "react-native";
 import ListHeader from "../../components/admin/ListHeader";
