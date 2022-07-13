@@ -53,6 +53,17 @@ const productSlice = createSlice({
       .addCase(getProducts.rejected, (state, action) => {
         state.isLoading = SliceStatus.rejected;
         state.error = action.error.message;
+      })
+      .addCase(searchProducts.pending, (state) => {
+        state.isLoadingSearchedProducts = SliceStatus.pending;
+      })
+      .addCase(searchProducts.fulfilled, (state, action) => {
+        state.isLoadingSearchedProducts = SliceStatus.resolved;
+        state.searchedProducts = action.payload as any[];
+      })
+      .addCase(searchProducts.rejected, (state, action) => {
+        state.isLoadingSearchedProducts = SliceStatus.rejected;
+        state.error = action.error.message;
       });
   },
 });
