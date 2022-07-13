@@ -21,19 +21,22 @@ const AdminProductsScreen = () => {
     searchedProducts,
     isLoadingSearchedProducts,
   } = useSearchProducts();
+  /*  const handleCloseList = () => {
+    closeList();
+  }; */
   return (
     <Box>
+      <SearchInput
+        onFocus={openList}
+        closeList={closeList}
+        searchProducts={handleSearchProducts}
+        focus={focus}
+      />
       {isProductsLoading === SliceStatus.pending ||
       isLoadingSearchedProducts === SliceStatus.pending ? (
         <CustomActivityIndicator />
       ) : (
         <>
-          <SearchInput
-            onFocus={openList}
-            closeList={closeList}
-            searchProducts={handleSearchProducts}
-            focus={focus}
-          />
           {showSearchProducts ? (
             <Box mt="2">
               <FlatList
