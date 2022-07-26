@@ -25,8 +25,15 @@ export const ListItem: FC<Props> = ({ item }) => {
     useToggle();
   return (
     <Box>
-      <Modal animationType="fade" transparent visible={modalVisible}></Modal>
-      <TouchableOpacity style={styles.container}>
+      <Modal
+        animationType="fade"
+        transparent
+        visible={modalVisible}
+        onRequestClose={toggleModalVisible}
+      >
+        <Text>hereee</Text>
+      </Modal>
+      <TouchableOpacity style={styles.container} onPress={toggleModalVisible}>
         <Box
           display="flex"
           flexDirection="row"
