@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableOpacity, Modal } from "react-native";
 import React, { FC } from "react";
-import { Box, Icon, Image, Text } from "native-base";
+import { Box, Button, Icon, Image, Text } from "native-base";
 import { useToggle } from "../hooks";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -41,7 +41,8 @@ export const ListItem: FC<Props> = ({ item }) => {
           zIndex={20}
         >
           <Box
-            h="20"
+            h="32"
+            w="40"
             bgColor="white"
             alignItems="center"
             justifyContent="center"
@@ -57,6 +58,8 @@ export const ListItem: FC<Props> = ({ item }) => {
                 as={<MaterialIcons name="close" />}
               />
             </TouchableHighlight>
+            <Button variant="unstyled">Edit</Button>
+            <Button variant="unstyled">Delete</Button>
           </Box>
         </Box>
       </Modal>
