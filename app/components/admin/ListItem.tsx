@@ -1,7 +1,9 @@
 import { StyleSheet, TouchableOpacity, Modal } from "react-native";
 import React, { FC } from "react";
-import { Box, Image, Text } from "native-base";
+import { Box, Icon, Image, Text } from "native-base";
 import { useToggle } from "../hooks";
+import { TouchableHighlight } from "react-native-gesture-handler";
+import { MaterialIcons } from "@expo/vector-icons";
 
 type ProductData = {
   name: string;
@@ -44,7 +46,17 @@ export const ListItem: FC<Props> = ({ item }) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="black">hereseqgeqgeGee</Text>
+            <TouchableHighlight
+              underlayColor="#E8E8E8"
+              onPress={() => toggleModalVisible()}
+            >
+              <Icon
+                mr="2"
+                size="3"
+                color="gray.600"
+                as={<MaterialIcons name="close" />}
+              />
+            </TouchableHighlight>
           </Box>
         </Box>
       </Modal>
