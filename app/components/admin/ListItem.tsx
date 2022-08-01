@@ -4,6 +4,7 @@ import { Box, Button, Icon, Image, Text } from "native-base";
 import { useToggle } from "../hooks";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
+import { NavigationScreenProp } from "react-navigation";
 
 type ProductData = {
   name: string;
@@ -21,10 +22,15 @@ type ProductData = {
 };
 type Props = {
   item: ProductData;
+  navigation: NavigationScreenProp<any, any>;
 };
-export const ListItem: FC<Props> = ({ item }) => {
+export const ListItem: FC<Props> = ({ item, navigation }) => {
   const { toggleOn: modalVisible, onToggleClick: toggleModalVisible } =
     useToggle();
+  const navigateToProductForm = () => {
+    navigation.navigate("Home");
+    toggleModalVisible();
+  };
   return (
     <Box position="relative">
       <Modal
@@ -58,7 +64,9 @@ export const ListItem: FC<Props> = ({ item }) => {
                 as={<MaterialIcons name="close" />}
               />
             </TouchableHighlight>
-            <Button variant="unstyled">Edit</Button>
+            <Button variant="unstyled" onPress={navigateToProductForm}>
+              Edit
+            </Button>
             <Button variant="unstyled">Delete</Button>
           </Box>
         </Box>

@@ -11,8 +11,12 @@ import { Box } from "native-base";
 import { SliceStatus } from "../../interfaces";
 import { FlatList } from "react-native";
 import ListHeader from "../../components/admin/ListHeader";
+import { NavigationScreenProp } from "react-navigation";
 
-const AdminProductsScreen = () => {
+type Props = {
+  navigation: NavigationScreenProp<any, any>;
+};
+const AdminProductsScreen = ({ navigation }: Props) => {
   const { products, isProductsLoading } = useFetchProducts();
   const { openList, closeList, focus } = useProducts();
   const {
@@ -42,7 +46,9 @@ const AdminProductsScreen = () => {
               <FlatList
                 data={searchedProducts}
                 ListHeaderComponent={ListHeader}
-                renderItem={({ item }) => <ListItem item={item} />}
+                renderItem={({ item }) => (
+                  <ListItem item={item} navigation={navigation} />
+                )}
                 keyExtractor={(item) => item.id}
               />
             </Box>
@@ -51,7 +57,9 @@ const AdminProductsScreen = () => {
               <FlatList
                 data={products}
                 ListHeaderComponent={ListHeader}
-                renderItem={({ item }) => <ListItem item={item} />}
+                renderItem={({ item }) => (
+                  <ListItem item={item} navigation={navigation} />
+                )}
                 keyExtractor={(item) => item.id}
               />
             </Box>
