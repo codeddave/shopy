@@ -78,7 +78,14 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
         </Box>
       </Modal>
 
-      <TouchableOpacity style={styles.container} onPress={toggleModalVisible}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          navigateToProductForm();
+          console.log("heree");
+        }}
+        onLongPress={toggleModalVisible}
+      >
         <Box
           display="flex"
           flexDirection="row"
