@@ -32,7 +32,7 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
     toggleModalVisible();
   };
   return (
-    <Box position="relative">
+    <Box>
       <Modal
         animationType="fade"
         transparent
@@ -44,7 +44,6 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
           alignItems="center"
           justifyContent="center"
           bgColor="transparent"
-          zIndex={20}
         >
           <Box
             h="32"
@@ -53,18 +52,25 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
             alignItems="center"
             justifyContent="center"
           >
-            <TouchableHighlight
-              underlayColor="#E8E8E8"
-              onPress={() => toggleModalVisible()}
+            <TouchableOpacity
+              style={{
+                position: "absolute",
+                right: 8,
+                alignSelf: "flex-end",
+                top: 8,
+              }}
+              onPress={() => {
+                toggleModalVisible();
+                console.log("heree");
+              }}
             >
               <Icon
-                mr="2"
                 size="3"
                 color="gray.600"
                 as={<MaterialIcons name="close" />}
               />
-            </TouchableHighlight>
-            <Button variant="unstyled" onPress={navigateToProductForm}>
+            </TouchableOpacity>
+            <Button variant="unstyled" mt="2" onPress={navigateToProductForm}>
               Edit
             </Button>
             <Button variant="unstyled">Delete</Button>
