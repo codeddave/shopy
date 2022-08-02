@@ -46,18 +46,19 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
           bgColor="transparent"
         >
           <Box
-            h="32"
+            h="40"
             w="40"
             bgColor="white"
             alignItems="center"
             justifyContent="center"
+            rounded="lg"
           >
             <TouchableOpacity
               style={{
                 position: "absolute",
-                right: 8,
+                right: 10,
                 alignSelf: "flex-end",
-                top: 8,
+                top: 10,
               }}
               onPress={() => {
                 toggleModalVisible();
@@ -70,10 +71,12 @@ export const ListItem: FC<Props> = ({ item, navigation }) => {
                 as={<MaterialIcons name="close" />}
               />
             </TouchableOpacity>
-            <Button variant="unstyled" mt="2" onPress={navigateToProductForm}>
+            <Button colorScheme="green" mt="2" onPress={navigateToProductForm}>
               Edit
             </Button>
-            <Button variant="unstyled">Delete</Button>
+            <Button colorScheme="red" mt="3">
+              Delete
+            </Button>
           </Box>
         </Box>
       </Modal>
