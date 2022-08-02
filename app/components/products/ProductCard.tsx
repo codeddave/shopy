@@ -30,10 +30,14 @@ const ProductCard = ({ item }: Props) => {
       <Text style={styles.title}>
         {item.name.length > 15 ? item.name.slice(0, 12) + "..." : item.name}
       </Text>
-      <Text style={styles.price}>{item.price}</Text>
+      <Text style={styles.price}>${item.price}</Text>
 
       {item.countInStock > 0 ? (
-        <Button title="Add to Cart" onPress={() => dispatch(addToCart(item))} />
+        <Button
+          color={"#22c55e"}
+          title="Add to Cart"
+          onPress={() => dispatch(addToCart(item))}
+        />
       ) : (
         <Text> Out of Stock</Text>
       )}
