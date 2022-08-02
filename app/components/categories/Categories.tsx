@@ -73,14 +73,14 @@ const Categories = ({
 
 const styles = StyleSheet.create({
   active: {
-    backgroundColor: "#03bafc",
+    backgroundColor: "#22c55e",
   },
   center: {
     justifyContent: "center",
     alignItems: "center",
   },
   inactive: {
-    backgroundColor: "#a0e1eb",
+    backgroundColor: "#83e5a7",
   },
 });
 
